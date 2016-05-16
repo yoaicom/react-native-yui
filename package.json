@@ -1,0 +1,21 @@
+{
+  "name": "react-native-yoai-uikit",
+  "version": "0.0.8",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+     "react-native-viewpager":"^0.2.1",
+     "react-native-gallery-kit":"^0.0.5",
+     "react-native-drawer":"^2.2.2",
+     "react-native-scrollable-tab-view":"^0.4.2",
+     "react-native-swipeout":"^2.0.12",
+     "react-native-collapsible":"^0.6.0",
+     "react-native-lightbox":"^0.6.0"
+  },
+  "description": {
+  }
+}
