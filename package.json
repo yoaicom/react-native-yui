@@ -1,12 +1,22 @@
 {
   "name": "react-native-yoai-uikit",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "keywords": [
+    "react-native-component",
+    "react-component",
+    "react-native",
+    "ios",
+    "android",
+    "uikit",
+    "yoai",
+    "ui"
+  ],
   "dependencies": {
      "react-native-viewpager":"^0.2.1",
      "react-native-gallery-kit":"^0.0.5",
