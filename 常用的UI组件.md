@@ -14,7 +14,7 @@
 
    图片
 
-4. ActivityIndicator/LoadingView
+4. LoadingView(ActivityIndicator)
 
    正在加载的显示
 
@@ -36,7 +36,7 @@
 
 12. GridView
 
-13. ViewPager
+13. Swiper
 
 14. Picker
 
@@ -46,7 +46,7 @@
 
 1. RefreshControl
 2. ExpandControl/CollapseControl
-3. Modal
+3. Dialog(Modal)
 4. Navigator
 
 
