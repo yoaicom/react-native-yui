@@ -1,51 +1,40 @@
 'use strict';
 
-import ReactNative, {
-  Text,
-  TextInput,
-  Image,
-  Slider,
-  ScrollView,
-  ListView,
-  RefreshControl,
-  Modal,
-  Navigator,
-  DatePicker
-} from 'react-native';
+import ReactNative from 'react-native';
 
 var YUI = {
   get Text() {
-    return Text;
+    return ReactNative.Text;
   },
   get TextInput() {
-    return TextInput;
+    return ReactNative.TextInput;
   },
   get Image() {
-    return Image;
+    return ReactNative.Image;
   },
   get ActivityIndicator() {
-    return require('./library/ActivityIndicator');
+    return require('./library/ActivityIndicator').default;
   },
   get ProgressBar() {
-    return require('./library/ProgressBar');
+    return require('./library/ProgressBar').default;
   },
   get Slider() {
-    Slider
+    ReactNative.Slider
   },
   get Button() {
-    //TODO
+    return require('./library/Button').default;
   },
   get Switch() {
-    //TODO
+    return ReactNative.Switch;
   },
   get TabBar() {
     //TODO
   },
   get ScrollView() {
-    return ScrollView;
+    return ReactNative.ScrollView;
   },
   get ListView() {
-    return ListView;
+    return ReactNative.ListView;
   },
   get GridView() {
     //TODO
@@ -57,19 +46,19 @@ var YUI = {
     //TODO
   },
   get RefreshControl() {
-    return RefreshControl;
+    return ReactNative.RefreshControl;
   },
   get ExpandControl() {
     //TODO
   },
   get Dialog() {
-    return Modal;
+    return ReactNative.Modal;
   },
   get Navigator() {
-    return Navigator;
+    return ReactNative.Navigator;
   },
   get DatePicker() {
-    return DatePicker;
+    return ReactNative.DatePicker;
   }
 }
 

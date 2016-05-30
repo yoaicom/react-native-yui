@@ -26,8 +26,12 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'ProgressBar',
       desc: '用于显示任务进度的进度条'
-    }],
-  'Control Component': [
+    },
+    {
+      name: 'Button',
+      desc: '具有高亮变化的按钮'
+    },],
+  'Control Components': [
     {
       name: 'RefreshControl',
       desc: 'blablabla'

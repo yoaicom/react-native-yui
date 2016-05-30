@@ -8,6 +8,8 @@ import {
 import DemoList from './demos/DemoList';
 import ActivityIndicatorDemo from './demos/ActivityIndicatorDemo';
 import ProgressBarDemo from './demos/ProgressBarDemo';
+import ButtonDemo from './demos/ButtonDemo';
+
 
 
 export default class Demo extends Component {
@@ -38,6 +40,9 @@ export default class Demo extends Component {
     }
     if(route.name === 'ProgressBar') {
       return <ProgressBarDemo />
+    }
+    if(route.name === 'Button') {
+      return <ButtonDemo />
     }
   }
 }
