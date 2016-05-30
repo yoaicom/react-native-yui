@@ -14,9 +14,9 @@
 
    图片
 
-4. LoadingView(ActivityIndicator)
+4. ActivityIndicator
 
-   正在加载的显示
+   正在加载
 
 5. ProgressBar
 

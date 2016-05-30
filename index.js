@@ -20,17 +20,14 @@ var YUI = {
   get TextInput() {
     return TextInput;
   },
-  get TextInput() {
-    return TextInput;
-  },
   get Image() {
     return Image;
   },
-  get LoadingView() {
-    //TODO
+  get ActivityIndicator() {
+    return require('./library/ActivityIndicator');
   },
   get ProgressBar() {
-    //TODO
+    return require('./library/ProgressBar');
   },
   get Slider() {
     Slider
