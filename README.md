@@ -1,7 +1,17 @@
 # react-native-yui
-本项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
+此项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
+
+对于此项目应该囊括哪些组件，我们有以下考虑：
+
+1. **RN官方控件优先**：当然不要重复造轮子。
+2. **跨平台优先**：我们推崇iOS/Android通用的控件。不仅要Learn Once, Write Everywhere，更要Write Once, Run Everywhere。
+3. **纯JavaScript的模块优先**：尽可能减少Native Linking，简化开发，减少热更新障碍。
+4. **用户体验优先**：组件的性能是我们取舍权衡的一个重要因素。
+5. **功能普适和可拓展**：在囊括各类组件的基础上，尽可能选取应用广泛、方便扩展的组件。
 
 
+
+## 组件分类
 
 #### 基本组件
 
@@ -11,42 +21,49 @@
 
 3. [Image](https://facebook.github.io/react-native/docs/image.html)
 
-4. Button
+4. **Button**
 
-5. ActivityIndicator
+5. **ActivityIndicator**
 
-6. ProgressBar
+6. **ProgressBar**
 
-7. Slider
+7. [Slider](https://facebook.github.io/react-native/docs/slider.html)
 
-8. Switch
+8. [Switch](https://facebook.github.io/react-native/docs/switch.html)
 
-9. TabBar
+9. *TabBar*
 
    待实现
 
-10. ScrollView
+10. [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html)
 
-11. ListView
+11. [ListView](https://facebook.github.io/react-native/docs/listview.html)
 
-12. ViewPager
+12. **ViewPager**
 
-13. Picker
+13. [Picker](https://facebook.github.io/react-native/docs/picker.html)
 
-14. Alert
+14. [Alert](https://facebook.github.io/react-native/docs/alert.html)
 
-15. DatePicker
+15. *DatePicker*
+
+    待实现
+
+16.  
 
     ​
 
 #### 控制组件
 
-1. RefreshControl
-2. Modal
-3. Navigator
+1. [RefreshControl](https://facebook.github.io/react-native/docs/refreshcontrol.html)
+2. [Modal](https://facebook.github.io/react-native/docs/modal.html)
+3. [Navigator](https://facebook.github.io/react-native/docs/navigator.html)
 
 
 
 #### 特效组件
+
+1. 待补充
+2. ​
 
 
