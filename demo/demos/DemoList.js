@@ -30,6 +30,10 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'Button',
       desc: '具有高亮变化的按钮'
+    },
+    {
+      name: 'ViewPager',
+      desc: '横向轮播页面'
     },],
   'Control Components': [
     {

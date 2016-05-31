@@ -9,6 +9,8 @@ import DemoList from './demos/DemoList';
 import ActivityIndicatorDemo from './demos/ActivityIndicatorDemo';
 import ProgressBarDemo from './demos/ProgressBarDemo';
 import ButtonDemo from './demos/ButtonDemo';
+import ViewPagerDemo from './demos/ViewPagerDemo';
+
 
 
 
@@ -43,6 +45,9 @@ export default class Demo extends Component {
     }
     if(route.name === 'Button') {
       return <ButtonDemo />
+    }
+    if(route.name === 'ViewPager') {
+      return <ViewPagerDemo />
     }
   }
 }

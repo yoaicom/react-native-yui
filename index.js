@@ -36,22 +36,19 @@ var YUI = {
   get ListView() {
     return ReactNative.ListView;
   },
-  get GridView() {
-    //TODO
-  },
-  get Swiper() {
-    //TODO
+  get ViewPager() {
+    return require('./library/ViewPager').default;
   },
   get Picker() {
-    //TODO
+    return ReactNative.Picker;
   },
   get RefreshControl() {
     return ReactNative.RefreshControl;
   },
-  get ExpandControl() {
-    //TODO
+  get Alert() {
+    return ReactNative.Alert;
   },
-  get Dialog() {
+  get Modal() {
     return ReactNative.Modal;
   },
   get Navigator() {
