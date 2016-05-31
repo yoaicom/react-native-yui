@@ -1,6 +1,6 @@
 {
-  "name": "react-native-yoai-uikit",
-  "version": "0.0.10",
+  "name": "react-native-yui",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,32 +8,10 @@
   "author": "",
   "license": "ISC",
   "keywords": [
-    "react-native-component",
-    "react-component",
-    "react-native",
-    "ios",
-    "android",
-    "uikit",
-    "yoai",
-    "ui"
+
   ],
   "dependencies": {
-     "react-native-viewpager":"^0.2.1",
-     "react-native-gallery-kit":"^0.0.5",
-     "react-native-drawer":"^2.2.2",
-     "react-native-swipeout":"^2.0.12",
-     "react-native-collapsible":"^0.6.0",
-     "react-native-scrollable-tab-view":"^0.4.3",
-     "react-native-gesture-password":"^0.1.5",
-     "react-native-swipe-cards":"^0.0.7",
-     "react-native-keyboard-aware-scrollview":"^0.0.7",
-     "react-native-root-toast":"^1.0.3",
-     "react-native-parallax-scroll-view":"^0.18.2",
-     "react-native-parallax":"^0.2.2",
-     "react-native-action-button":"^1.1.5",
-     "apsl-react-native-button":"^2.5.0",
-     "react-native-invertible-scroll-view":"^1.0.0",
-     "react-native-tabs":"^1.0.7"
+
   },
   "description": {
   }
