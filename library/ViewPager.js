@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
-  ScrollView,
-  Platform,
+  ScrollView
 } from 'react-native';
 
 export default class ViewPager extends Component {
@@ -17,7 +16,6 @@ export default class ViewPager extends Component {
 
   curPage = -1;
   curState = 'idle';
-  count = 0;
 
   constructor(props) {
     super(props);
@@ -27,15 +25,6 @@ export default class ViewPager extends Component {
     console.log('componentDidUpdate...')
 
     this.setPageWithoutAnimation(this.props.initialPage);
-  }
-
-  renderAndroid() {
-    return (
-      <ViewPagerAndroid
-        {...this.props}
-        onPageScrollStateChanged={this._onPageScrollStateChanged.bind(this)}
-      />
-    );
   }
 
   render() {

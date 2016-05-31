@@ -1,40 +1,50 @@
 # react-native-yui
-常用的UI组件
+本项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
 
-基本组件
+
+
+#### 基本组件
 
 1. Text
-   文字
-2. TextInput
-   文字输入
-3. Image
-   图片
-4. ActivityIndicator
-   正在加载
-5. ProgressBar
-   进度显示
-6. Slider
-7. Button
-8. Switch
-9. TabBar
-10. ScrollView
-11. ListView
-12. GridView
-13. Swiper
-14. Picker
 
-控制组件
+2. TextInput
+
+3. Image
+
+4. Button
+
+5. ActivityIndicator
+
+6. ProgressBar
+
+7. Slider
+
+8. Switch
+
+9. TabBar
+
+10. ScrollView
+
+11. ListView
+
+12. ViewPager
+
+13. Picker
+
+14. Alert
+
+15. DatePicker
+
+    ​
+
+#### 控制组件
 
 1. RefreshControl
-2. ExpandControl/CollapseControl
-3. Dialog(Modal)
-4. Navigator
-
-特定用途组件
-
-1. DatePicker
+2. Modal
+3. Navigator
 
 
 
+#### 特效组件
 
 
