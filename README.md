@@ -5,11 +5,11 @@
 
 #### 基本组件
 
-1. Text
+1. [Text](https://facebook.github.io/react-native/docs/text.html)
 
-2. TextInput
+2. [TextInput](https://facebook.github.io/react-native/docs/textinput.html)
 
-3. Image
+3. [Image](https://facebook.github.io/react-native/docs/image.html)
 
 4. Button
 
@@ -22,6 +22,8 @@
 8. Switch
 
 9. TabBar
+
+   待实现
 
 10. ScrollView
 
