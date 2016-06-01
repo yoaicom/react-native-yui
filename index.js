@@ -37,7 +37,7 @@ var YUI = {
     return ReactNative.ListView;
   },
   get ViewPager() {
-    return require('./library/ViewPager').default;
+    return require('./library/viewpager/ViewPager').default;
   },
   get Picker() {
     return ReactNative.Picker;

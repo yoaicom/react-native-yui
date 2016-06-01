@@ -27,7 +27,7 @@ const images = [
   'http://img3.3lian.com/2013/s1/59/d/67.jpg'
 ];
 
-export default class ProgressBarDemo extends Component {
+export default class ViewPagerDemo extends Component {
 
   render() {
     return (
@@ -35,6 +35,11 @@ export default class ProgressBarDemo extends Component {
         style={{flex: 1}}
       >
         <ViewPager
+          indicator={(
+            <ViewPager.PagerDotIndicator
+                  style={{position: 'absolute', bottom: 50, left: 0, right: 0}}
+                />
+          )}
           scrollEnabled={true}
           initialPage={6}
           onPageSelected={(e) => {

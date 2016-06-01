@@ -1,9 +1,20 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
-  ScrollView
+  ScrollView,
+  View
 } from 'react-native';
 
 export default class ViewPager extends Component {
+
+  static get PagerDotIndicator() {
+    return require('./PagerDotIndicator').default;
+  }
+
+  static propTypes = {
+    ...View.propTypes,
+    initialPage: PropTypes.number,
+    indicator: PropTypes.element,
+  }
 
   static defaultProps = {
     initialPage: 0,
@@ -16,6 +27,8 @@ export default class ViewPager extends Component {
 
   curPage = -1;
   curState = 'idle';
+  scrollViewRef = null;
+  indicatorRef = null;
 
   constructor(props) {
     super(props);
@@ -53,6 +66,39 @@ export default class ViewPager extends Component {
       });
     }
 
+
+    if (this.props.indicator) {
+      let pagerIndicator = React.cloneElement(this.props.indicator, {
+        pageCount: this.props.children.length,
+        ref: this._onIndicatorRef.bind(this)
+      });
+
+      return (
+        <View
+          {...this.props}>
+          <ScrollView
+            {...this.props}
+            children={children}
+            horizontal={true}
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            ref={this._onRef.bind(this)}
+            onLayout={this._onLayout.bind(this)}
+            onScroll={this._onScroll.bind(this)}
+            onScrollBeginDrag={this._onScrollBeginDrag.bind(this)}
+            onScrollEndDrag={this._onScrollEndDrag.bind(this)}
+            onMomentumScrollBegin={this._onMomentumScrollBegin.bind(this)}
+            onMomentumScrollEnd={this.onMomentumScrollEnd.bind(this)}
+            scrollEventThrottle={100}
+          />
+
+          {pagerIndicator}
+
+        </View>
+      )
+    }
+
     return (
       <ScrollView
         {...this.props}
@@ -68,13 +114,14 @@ export default class ViewPager extends Component {
         onScrollEndDrag={this._onScrollEndDrag.bind(this)}
         onMomentumScrollBegin={this._onMomentumScrollBegin.bind(this)}
         onMomentumScrollEnd={this.onMomentumScrollEnd.bind(this)}
-        scrollEventThrottle={50}
+        scrollEventThrottle={100}
       />
     );
   }
 
+
   _onLayout(e) {
-    console.log('onLayout...' + JSON.stringify(e.nativeEvent));
+    //console.log('onLayout...' + JSON.stringify(e.nativeEvent));
     this.props.onLayout && this.props.onLayout(e);
 
     let {width, height} = e.nativeEvent.layout;
@@ -83,6 +130,10 @@ export default class ViewPager extends Component {
 
   _onRef(ref) {
     this.scrollViewRef = ref;
+  }
+
+  _onIndicatorRef(ref) {
+    this.indicatorRef = ref;
   }
 
   _onScroll(e) {
@@ -118,14 +169,14 @@ export default class ViewPager extends Component {
     //console.log('onMomentumScrollEnd...' + JSON.stringify(e.nativeEvent.contentOffset));
     let x = e.nativeEvent.contentOffset.x;
     let index = Math.floor(x / this.state.width);
-    if(index * this.state.width === x) {
+    if (index * this.state.width === x) {
       this._onPageScrollStateChanged('idle');
       this._onPageSelected(index);
     }
   }
 
-  _onPageScrollStateChanged(state: String) {
-    if(this.curState !== state) {
+  _onPageScrollStateChanged(state:String) {
+    if (this.curState !== state) {
       this.curPage = state;
       this.props.onPageScrollStateChanged && this.props.onPageScrollStateChanged({
         nativeEvent: {
@@ -136,24 +187,26 @@ export default class ViewPager extends Component {
   }
 
   _onPageSelected(index) {
-    if(this.curPage !== index) {
+    if (this.curPage !== index) {
       this.curPage = index;
       this.props.onPageSelected && this.props.onPageSelected({nativeEvent: {position: index}});
+
+      if (this.indicatorRef) {
+        this.indicatorRef.onPageSelected(index);
+      }
     }
   }
 
   _setPage(index, animated) {
-    if(index < 0) {
+    if (index < 0) {
       index = 0;
-    } else if(index >= this.props.children.length) {
+    } else if (index >= this.props.children.length) {
       index = this.props.children.length - 1;
     }
 
     this.scrollViewRef.scrollTo({x: this.state.width * index, animated: animated});
 
-    if(!animated) {
-      this._onPageSelected(index);
-    }
+    this._onPageSelected(index);
   }
 
   setPage(index) {
