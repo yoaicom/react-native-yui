@@ -31,9 +31,7 @@
 
 8. [Switch](https://facebook.github.io/react-native/docs/switch.html)
 
-9. *TabBar*
-
-   待实现
+9. **TabBar**
 
 10. [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html)
 
