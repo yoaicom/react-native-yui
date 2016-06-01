@@ -28,7 +28,7 @@ var YUI = {
     return ReactNative.Switch;
   },
   get TabBar() {
-    //TODO
+    return require('./library/tabbar/TabBar').default;
   },
   get ScrollView() {
     return ReactNative.ScrollView;

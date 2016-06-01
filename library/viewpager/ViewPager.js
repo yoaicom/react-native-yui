@@ -4,6 +4,9 @@ import {
   View
 } from 'react-native';
 
+import TimerMixin from 'react-timer-mixin';
+import reactMixin from 'react-mixin';
+
 export default class ViewPager extends Component {
 
   static get PagerDotIndicator() {
@@ -29,15 +32,20 @@ export default class ViewPager extends Component {
   curState = 'idle';
   scrollViewRef = null;
   indicatorRef = null;
+  initialPageSettled = false;
 
   constructor(props) {
     super(props);
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate...')
+    //console.log('componentDidUpdate...')
+    if(!this.initialPageSettled) {
+      this.initialPageSettled = true;
 
-    this.setPageWithoutAnimation(this.props.initialPage);
+      //A trick to solve bugs on Android
+      setTimeout(this.setPageWithoutAnimation.bind(this, this.props.initialPage), 0);
+    }
   }
 
   render() {
@@ -125,7 +133,9 @@ export default class ViewPager extends Component {
     this.props.onLayout && this.props.onLayout(e);
 
     let {width, height} = e.nativeEvent.layout;
-    this.setState({width, height});
+    if(width !== this.state.width || height !== this.state.height) {
+      this.setState({width, height});
+    }
   }
 
   _onRef(ref) {
@@ -217,3 +227,9 @@ export default class ViewPager extends Component {
     this._setPage(index, false);
   }
 }
+
+/**
+ * Keep in mind that if you use ES6 classes for your React components there is no built-in API for mixins. To use TimerMixin with ES6 classes, we recommend react-mixin.
+ * Refer to 'https://facebook.github.io/react-native/docs/timers.html#content'
+ */
+reactMixin(ViewPager.prototype, TimerMixin);

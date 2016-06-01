@@ -10,6 +10,7 @@ import ActivityIndicatorDemo from './demos/ActivityIndicatorDemo';
 import ProgressBarDemo from './demos/ProgressBarDemo';
 import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
+import TabBarDemo from './demos/TabBarDemo';
 
 
 
@@ -48,6 +49,9 @@ export default class Demo extends Component {
     }
     if(route.name === 'ViewPager') {
       return <ViewPagerDemo />
+    }
+    if(route.name === 'TabBar') {
+      return <TabBarDemo />
     }
   }
 }

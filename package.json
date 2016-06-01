@@ -7,12 +7,10 @@
   },
   "author": "",
   "license": "ISC",
-  "keywords": [
-
-  ],
+  "keywords": [],
   "dependencies": {
-
+    "react-mixin": "^3.0.5",
+    "react-timer-mixin": "^0.13.3"
   },
-  "description": {
-  }
+  "description": {}
 }

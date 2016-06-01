@@ -34,6 +34,10 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'ViewPager',
       desc: '横向轮播页面'
+    },
+    {
+      name: 'TabBar',
+      desc: '底部分栏'
     },],
   'Control Components': [
     {

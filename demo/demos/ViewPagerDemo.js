@@ -41,7 +41,7 @@ export default class ViewPagerDemo extends Component {
                 />
           )}
           scrollEnabled={true}
-          initialPage={6}
+          initialPage={this.props.initialPage}
           onPageSelected={(e) => {
             console.log('onPageSelected...' + JSON.stringify(e.nativeEvent));
           }}
