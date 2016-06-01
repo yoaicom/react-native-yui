@@ -25,6 +25,8 @@
 
 5. **ActivityIndicator**
 
+   RN官方master分支已有平台通用的同类控件，我们将在RN发布后采用官方控件。[相关链接](https://github.com/facebook/react-native/pull/6897)
+
 6. **ProgressBar**
 
 7. [Slider](https://facebook.github.io/react-native/docs/slider.html)
@@ -47,7 +49,7 @@
 
     待实现
 
-16.  
+16. ​
 
     ​
 
