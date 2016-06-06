@@ -38,6 +38,10 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'TabBar',
       desc: '底部分栏'
+    },
+    {
+      name: 'MediaKit',
+      desc: '媒体播放'
     },],
   'Control Components': [
     {
@@ -74,7 +78,7 @@ export default class DemoList extends Component {
             console.log('onPress...' + rowData.name);
             this.props.onPressRow(rowData.name);
           }}
-          >
+        >
           <View
             style={{padding: 5, backgroundColor: '#eeeeee'}}>
             <Text style={{fontSize: 14, marginBottom: 5}}>{rowData.name}</Text>
@@ -103,7 +107,7 @@ export default class DemoList extends Component {
 const styles = StyleSheet.create({
   list: {
     flex: 1,
-    marginTop: (Platform.OS === 'ios' ? 20: 0),
+    marginTop: (Platform.OS === 'ios' ? 20 : 0),
   },
   separator: {
     backgroundColor: 'black',

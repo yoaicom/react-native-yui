@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "react": "^15.1.0",
-    "react-native": "^0.27.0-rc2"
+    "react-native": "^0.27.0-rc2",
+    "react-native-media-kit": "0.0.3"
   }
 }

@@ -1,3 +1,5 @@
 rootProject.name = 'demo'
 
 include ':app'
+include ':react-native-media-kit'
+project(':react-native-media-kit').projectDir = new File('/Users/ldn/Coding/repo/react-native-media-kit/android')

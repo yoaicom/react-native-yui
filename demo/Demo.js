@@ -11,6 +11,7 @@ import ProgressBarDemo from './demos/ProgressBarDemo';
 import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
+import MediaKitDemo from './demos/MediaKitDemo';
 
 
 
@@ -52,6 +53,9 @@ export default class Demo extends Component {
     }
     if(route.name === 'TabBar') {
       return <TabBarDemo />
+    }
+    if(route.name === 'MediaKit') {
+      return <MediaKitDemo />
     }
   }
 }
