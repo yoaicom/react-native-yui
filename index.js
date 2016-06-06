@@ -3,7 +3,7 @@
 import ReactNative from 'react-native';
 
 var YUI = {
-  getView() {
+  get View() {
     return ReactNative.View;
   },
   get Text() {
