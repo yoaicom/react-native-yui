@@ -3,6 +3,9 @@
 import ReactNative from 'react-native';
 
 var YUI = {
+  getView() {
+    return ReactNative.View;
+  },
   get Text() {
     return ReactNative.Text;
   },
