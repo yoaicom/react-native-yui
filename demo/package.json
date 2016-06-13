@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-native": "^0.27.0-rc2",
-    "react-native-media-kit": "0.0.7"
+    "react-native-media-kit": "0.0.7",
+    "react-native-yui": "0.0.5"
   }
 }
