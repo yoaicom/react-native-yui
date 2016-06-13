@@ -1,4 +1,6 @@
 # react-native-yui
+**Still under developing, do NOT use**  
+
 此项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
 
 对于此项目应该囊括哪些组件，我们有以下考虑：
