@@ -12,9 +12,9 @@ import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
-
-
-
+import ParallaxViewDemo from './demos/ParallaxViewDemo';
+import ParallaxScrollDemo from './demos/ParallaxScrollDemo';
+import ScrollableTabView from './demos/ScrollableTabView';
 
 export default class Demo extends Component {
   render() {
@@ -56,6 +56,15 @@ export default class Demo extends Component {
     }
     if(route.name === 'MediaKit') {
       return <MediaKitDemo />
+    }
+    if(route.name === 'ParallaxView') {
+      return <ParallaxViewDemo />
+    }
+    if(route.name === 'ParallaxScrollView') {
+      return <ParallaxScrollDemo />
+    }
+    if(route.name === 'ScrollableTabView') {
+      return <ScrollableTabView />
     }
   }
 }

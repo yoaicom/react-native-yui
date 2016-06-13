@@ -50,7 +50,26 @@ const dataSource = ds.cloneWithRowsAndSections({
     }, {
       name: 'ExpandControl',
       desc: 'blablabla'
-    }]
+    }],
+  'ParallaxView Components': [
+    {
+      name: 'ParallaxView',
+      desc: '视差效果'
+    },
+    {
+      name: 'ParallaxScrollView',
+      desc: '视差效果2'
+    },],
+  'Nav': [
+    {
+      name: 'ScrollableTabView',
+      desc: '可滚动的TabView'
+    },
+    {
+      name: 'TabsView',
+      desc: '底部标签栏'
+    },
+  ],
 });
 
 export default class DemoList extends Component {

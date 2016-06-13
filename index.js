@@ -2,6 +2,8 @@
 
 import ReactNative from 'react-native';
 
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
+
 var YUI = {
   get View() {
     return ReactNative.View;
@@ -59,7 +61,9 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
-  }
+  },
+  
+  get ParallaxScrollView() {return ParallaxScrollView; },
 }
 
 module.exports = YUI;
