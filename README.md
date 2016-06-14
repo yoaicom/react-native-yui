@@ -64,15 +64,15 @@
 #### 特效组件
 
 1. [InvertibleScrollView](https://github.com/exponentjs/react-native-invertible-scroll-view/blob/master/README.md)
-2. [KeyboardAwareScrollViewDemo](https://facebook.github.io/react-native/docs/modal.html)
-3. [ActionButton](https://facebook.github.io/react-native/docs/navigator.html)
-4. [TextInputAutoGrowDemo](https://facebook.github.io/react-native/docs/navigator.html)
-5. [ButtonApslDmeo](https://facebook.github.io/react-native/docs/navigator.html)
-6. [Toast](https://facebook.github.io/react-native/docs/navigator.html)
-7. [ParallaxView](https://facebook.github.io/react-native/docs/navigator.html)
-8. [ParallaxScrollView](https://facebook.github.io/react-native/docs/navigator.html)
-9. [ScrollableTabView](https://facebook.github.io/react-native/docs/navigator.html)
-10. [TabsView](https://facebook.github.io/react-native/docs/navigator.html)
-11. [DrawerView](https://facebook.github.io/react-native/docs/navigator.html)
+2. [KeyboardAwareScrollViewDemo](https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/README.md)
+3. [ActionButton](https://github.com/mastermoo/react-native-action-button/blob/master/README.md)
+4. [TextInputAutoGrowDemo](https://github.com/wix/react-native-autogrow-textinput/blob/master/README.md)
+5. [ButtonApslDmeo](https://github.com/APSL/react-native-button/blob/master/README.md)
+6. [Toast](https://github.com/magicismight/react-native-root-toast/blob/master/README.md)
+7. [ParallaxView](https://github.com/oblador/react-native-parallax/blob/master/README.md)
+8. [ParallaxScrollView](https://github.com/jaysoo/react-native-parallax-scroll-view/blob/master/README.md)
+9. [ScrollableTabView](https://github.com/skv-headless/react-native-scrollable-tab-view/blob/master/README.md)
+10. [TabsView](https://github.com/aksonov/react-native-tabs/blob/master/README.md)
+11. [DrawerView](https://github.com/aksonov/react-native-tabs/blob/master/README.md)
 
 
