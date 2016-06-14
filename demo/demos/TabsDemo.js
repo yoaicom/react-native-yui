@@ -24,7 +24,13 @@ export default class Example extends React.Component {
           <Text name="second" selectedIconStyle={{borderTopWidth:2,borderTopColor:'red'}}>Second</Text>
           <Text name="third"  selectedIconStyle={{borderTopWidth:2,borderTopColor:'red'}}>Third</Text>
           <Text name="fourth" selectedStyle={{color:'green'}}>Fourth</Text>
-          <Text name="fifth">Fifth</Text>
+          <View name="fifth"
+            selectedStyle={{backgroundColor:'green'}}
+            >
+            <Text
+              selectedStyle={{color:'green'}}
+              >Tsst</Text>
+          </View>
         </Tabs>
         <Text style={styles.welcome}>
           Welcome to React Native

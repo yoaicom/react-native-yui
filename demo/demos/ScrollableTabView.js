@@ -102,14 +102,15 @@ class OverlayExample extends Component {
 };
 
 //export default FacebookTabsExample;
-//export default SimpleExample;
-export default ScrollableTabsExample;
+export default SimpleExample;
+//export default ScrollableTabsExample;
 //export default OverlayExample;
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 44,
-    height:200
+    height:200,
+    backgroundColor:'white'
   },
   tabView: {
     flex: 1,
