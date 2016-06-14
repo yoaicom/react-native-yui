@@ -10,7 +10,7 @@ import {
   PixelRatio,
   } from 'react-native';
 
-import Parallax from 'react-native-parallax';
+import {Parallax} from 'react-native-yui';
 
 var IMAGE_WIDTH = Dimensions.get('window').width;
 var IMAGE_HEIGHT = IMAGE_WIDTH / 2;

@@ -16,7 +16,7 @@ export default class Demo extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView style={{flex:1}} getTextInputRefs={() => { return [this._textInputRef,this._textInputRef1];}}>
+      <KeyboardAwareScrollView style={{flex:1 ,backgroundColor: 'white'}} getTextInputRefs={() => { return [this._textInputRef,this._textInputRef1];}}>
         <TextInput style={{borderWidth:2,marginTop:400,width:200,height:50,fontSize: 29}} placeholder={'My Input'} ref={(r) => { this._textInputRef = r; }}/>
         <TextInput style={{borderWidth:2,marginTop:50,width:200,height:50,fontSize: 29}} placeholder={'My Input'} ref={(r) => { this._textInputRef1 = r; }}/>
       </KeyboardAwareScrollView>

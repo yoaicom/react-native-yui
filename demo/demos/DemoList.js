@@ -100,24 +100,6 @@ const dataSource = ds.cloneWithRowsAndSections({
       desc: '底部标签栏'
     },
   ],
-  'Exhibit Picture ': [
-    {
-      name: 'Gallery',
-      desc: '图片相册浏览'
-    },
-    {
-      name: 'ViewPager',
-      desc: '轮播'
-    },
-    {
-      name: 'SwipeCardsDemo',
-      desc: '陌生人交友快速浏览'
-    },
-    {
-      name: 'ImagePickerDemo',
-      desc: '选取本地图片'
-    },
-  ],
   'Layout Components': [
     {
       name: 'DrawerView',

@@ -11,13 +11,8 @@
   "dependencies": {
     "react-mixin": "^3.0.5",
     "react-timer-mixin": "^0.13.3",
-    "react-native-viewpager":"^0.2.1",
      "react-native-drawer":"^2.2.2",
-     "react-native-swipeout":"^2.0.12",
-     "react-native-collapsible":"^0.6.0",
      "react-native-scrollable-tab-view":"^0.4.3",
-     "react-native-gesture-password":"^0.1.5",
-     "react-native-swipe-cards":"^0.0.7",
      "react-native-keyboard-aware-scrollview":"^0.0.7",
      "react-native-root-toast":"^1.0.3",
      "react-native-parallax-scroll-view":"^0.18.2",
