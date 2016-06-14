@@ -42,7 +42,35 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+  ],
+  'Higher Basic Components': [
+    {
+      name: 'InvertibleScrollView',
+      desc: '反向ScrollView'
+    },
+    {
+      name: 'KeyboardAwareScrollViewDemo',
+      desc: '响应键盘时对话框自动上移'
+    },
+    {
+      name: 'ActionButton',
+      desc: '收缩Button',
+    },
+    {
+      name: 'TextInputAutoGrowDemo',
+      desc: '自动换行TextInput',
+    },
+    {
+      name: 'ButtonApslDmeo',
+      desc: '风格按钮',
+    },
+    {
+      name: 'Toast',
+      desc: '提示',
+    },
+  ],
+
   'Control Components': [
     {
       name: 'RefreshControl',
@@ -50,7 +78,8 @@ const dataSource = ds.cloneWithRowsAndSections({
     }, {
       name: 'ExpandControl',
       desc: 'blablabla'
-    }],
+    }
+  ],
   'ParallaxView Components': [
     {
       name: 'ParallaxView',
@@ -59,7 +88,8 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'ParallaxScrollView',
       desc: '视差效果2'
-    },],
+    },
+  ],
   'Nav': [
     {
       name: 'ScrollableTabView',
@@ -70,6 +100,35 @@ const dataSource = ds.cloneWithRowsAndSections({
       desc: '底部标签栏'
     },
   ],
+  'Exhibit Picture ': [
+    {
+      name: 'Gallery',
+      desc: '图片相册浏览'
+    },
+    {
+      name: 'ViewPager',
+      desc: '轮播'
+    },
+    {
+      name: 'SwipeCardsDemo',
+      desc: '陌生人交友快速浏览'
+    },
+    {
+      name: 'ImagePickerDemo',
+      desc: '选取本地图片'
+    },
+  ],
+  'Layout Components': [
+    {
+      name: 'DrawerView',
+      desc: '抽屉'
+    },
+    {
+      name: 'PortableGirdViewDemo',
+      desc: '可移动的九宫格'
+    },
+  ],
+
 });
 
 export default class DemoList extends Component {

@@ -1,0 +1,85 @@
+{
+  "_args": [
+    [
+      "react-native-parallax",
+      "/Users/zhangtian/Desktop/react-native-yui/demo"
+    ]
+  ],
+  "_from": "react-native-parallax@*",
+  "_id": "react-native-parallax@0.2.2",
+  "_inCache": true,
+  "_location": "/react-native-parallax",
+  "_nodeVersion": "4.1.0",
+  "_npmUser": {
+    "email": "joel@oblador.se",
+    "name": "oblador"
+  },
+  "_npmVersion": "2.14.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-native-parallax",
+    "raw": "react-native-parallax",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-parallax/-/react-native-parallax-0.2.2.tgz",
+  "_shasum": "dd4a515862c8a0d44df8003e7fe7eb88e3a08480",
+  "_shrinkwrap": null,
+  "_spec": "react-native-parallax",
+  "_where": "/Users/zhangtian/Desktop/react-native-yui/demo",
+  "author": {
+    "email": "joel@oblador.se",
+    "name": "Joel Arvidsson"
+  },
+  "bugs": {
+    "url": "https://github.com/oblador/react-native-parallax/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "description": "Parallax effects for React Native using Animated API",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "dd4a515862c8a0d44df8003e7fe7eb88e3a08480",
+    "tarball": "https://registry.npmjs.org/react-native-parallax/-/react-native-parallax-0.2.2.tgz"
+  },
+  "gitHead": "ff1ab002aac93d358689195f7798c519e2122f65",
+  "homepage": "https://github.com/oblador/react-native-parallax",
+  "installable": true,
+  "keywords": [
+    "android",
+    "image",
+    "ios",
+    "mobile",
+    "parallax",
+    "react",
+    "react-component",
+    "react-native",
+    "react-native-component",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "oblador",
+      "email": "joel@oblador.se"
+    }
+  ],
+  "name": "react-native-parallax",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://oblador@github.com/oblador/react-native-parallax.git"
+  },
+  "scripts": {
+    "test": "flow check"
+  },
+  "version": "0.2.2"
+}

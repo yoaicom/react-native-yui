@@ -12,7 +12,6 @@
     "react-mixin": "^3.0.5",
     "react-timer-mixin": "^0.13.3",
     "react-native-viewpager":"^0.2.1",
-     "react-native-gallery-kit":"^0.0.5",
      "react-native-drawer":"^2.2.2",
      "react-native-swipeout":"^2.0.12",
      "react-native-collapsible":"^0.6.0",

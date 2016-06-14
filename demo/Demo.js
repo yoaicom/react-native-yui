@@ -15,6 +15,14 @@ import MediaKitDemo from './demos/MediaKitDemo';
 import ParallaxViewDemo from './demos/ParallaxViewDemo';
 import ParallaxScrollDemo from './demos/ParallaxScrollDemo';
 import ScrollableTabView from './demos/ScrollableTabView';
+import TabsView from './demos/TabsDemo';
+import DrawerDemo from './demos/DrawerDemo';
+import InvertibleScrollView from './demos/InvertibleScrollView';
+import KeyboardAwareScrollViewDemo from './demos/KeyboardAwareScrollViewDemo';
+import ActionButton from './demos/ActionButtonDemo';
+import TextInputAutoGrowDemo from './demos/TextInputAutoGrowDemo';
+import ButtonApslDmeo from './demos/ButtonApslDmeo';
+import Toast from './demos/ToastDemo';
 
 export default class Demo extends Component {
   render() {
@@ -65,6 +73,30 @@ export default class Demo extends Component {
     }
     if(route.name === 'ScrollableTabView') {
       return <ScrollableTabView />
+    }
+    if(route.name === 'TabsView') {
+      return <TabsView />
+    }
+    if(route.name === 'DrawerView') {
+      return <DrawerDemo />
+    }
+    if(route.name === 'InvertibleScrollView') {
+      return <InvertibleScrollView />
+    }
+    if(route.name === 'KeyboardAwareScrollViewDemo') {
+      return <KeyboardAwareScrollViewDemo />
+    }
+    if(route.name === 'ActionButton') {
+      return <ActionButton />
+    }
+    if(route.name === 'TextInputAutoGrowDemo') {
+      return <TextInputAutoGrowDemo />
+    }
+    if(route.name === 'ButtonApslDmeo') {
+      return <ButtonApslDmeo />
+    }
+    if(route.name === 'Toast') {
+      return <Toast />
     }
   }
 }
