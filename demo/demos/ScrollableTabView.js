@@ -14,8 +14,6 @@ import {
 } from 'react-native-yui';
 
 import FacebookTabBar from './FacebookTabBar';
-import Icon from 'react-native-vector-icons/Ionicons';
-
 class FacebookTabsExample extends Component {
   render() {
     return <View style={styles.container}>

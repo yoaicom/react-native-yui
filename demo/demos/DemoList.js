@@ -61,14 +61,6 @@ const dataSource = ds.cloneWithRowsAndSections({
       name: 'TextInputAutoGrowDemo',
       desc: '自动换行TextInput',
     },
-    {
-      name: 'ButtonApslDmeo',
-      desc: '风格按钮',
-    },
-    {
-      name: 'Toast',
-      desc: '提示',
-    },
   ],
 
   'Control Components': [

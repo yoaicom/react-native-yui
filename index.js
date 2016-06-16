@@ -10,15 +10,9 @@ import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
  
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
  
-import Toast from 'react-native-root-toast';
- 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import ActionButton from 'react-native-action-button';
-
-import Button from 'apsl-react-native-button';
- 
-import InvertibleScrollView from 'react-native-invertible-scroll-view';
 
 import Tabs from 'react-native-tabs';
 
@@ -81,34 +75,21 @@ var YUI = {
     return ReactNative.DatePicker;
   },
 	 
-	get Drawer() {return Drawer; },
-	 
-	get Collapsible() {return Collapsible; },
-	get Accordion() {return Accordion; },
-	 
 	get ScrollableTabView() {return ScrollableTabView; },
 	get DefaultTabBar() {return DefaultTabBar; },
 	get ScrollableTabBar() {return ScrollableTabBar; },	 
-	 
-  get Swipeout() {return Swipeout; },
-   
-  get GesturePassword() {return GesturePassword; },
    
   get AutoGrowingTextInput() {return AutoGrowingTextInput; },
    
   get KeyboardAwareScrollView() {return KeyboardAwareScrollView; },
    
-  get Toast() {return Toast; },
-   
-  get ParallaxScrollView() {return ParallaxScrollView; },
+  get ParallaxScrollView() {
+  	return require('./library/parallaxScroll/index'); 
+  },
       
   get Parallax() {
   	return require('./library/react-native-parallax/index'); 
   	},
-   
-  get Button() {return Button; },
-
-	get InvertibleScrollView() {return InvertibleScrollView; },
 	 
 	get ActionButton() {return ActionButton; },
 	 

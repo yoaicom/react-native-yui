@@ -9,17 +9,15 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
+  	"lodash": "^3.10.1",
     "react-mixin": "^3.0.5",
     "react-timer-mixin": "^0.13.3",
      "react-native-drawer":"^2.2.2",
      "react-native-scrollable-tab-view":"^0.4.3",
      "react-native-keyboard-aware-scrollview":"^0.0.7",
-     "react-native-root-toast":"^1.0.3",
      "react-native-parallax-scroll-view":"^0.18.2",
      "react-native-parallax":"^0.2.2",
      "react-native-action-button":"^1.1.5",
-     "apsl-react-native-button":"^2.5.0",
-     "react-native-invertible-scroll-view":"^1.0.0",
      "react-native-tabs":"^1.0.7"
   },
   "description": {}

@@ -4,13 +4,15 @@
 'use strict';
 
 var isEqual = require('lodash/lang/isEqual');
+
 import React from 'react';
+
 import {
   View,
   Image,
   Animated,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Dimensions,
 } from 'react-native';
 
@@ -115,13 +117,11 @@ var ParallaxImage = React.createClass({
         </View>
       </View>
     );
-    // Since we can't allow nested Parallax.Images, we supply this shorthand to wrap a touchable
-    // around the element
     if(onPress) {
       return (
-        <TouchableHighlight ref={component => this._touchable = component} onPress={onPress}>
+        <TouchableOpacity ref={component => this._touchable = component} onPress={onPress}>
           {content}
-        </TouchableHighlight>
+        </TouchableOpacity>
       );
     }
     return content;

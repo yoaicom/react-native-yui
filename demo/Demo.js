@@ -18,6 +18,8 @@ import TabsView from './demos/TabsDemo';
 import DrawerDemo from './demos/DrawerDemo';
 import TextInputAutoGrowDemo from './demos/TextInputAutoGrowDemo';
 import InvertibleScrollView from './demos/InvertibleScrollView';
+import KeyboardAwareScrollViewDemo from './demos/KeyboardAwareScrollViewDemo.js';
+import ActionButton from './demos/ActionButtonDemo.js';
 
 export default class Demo extends Component {
   render() {
