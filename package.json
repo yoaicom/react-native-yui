@@ -16,7 +16,8 @@
      "react-native-scrollable-tab-view":"^0.4.3",
      "react-native-keyboard-aware-scrollview":"^0.0.7",
      "react-native-action-button":"^1.1.5",
-     "react-native-tabs":"^1.0.7"
+     "react-native-tabs":"^1.0.7",
+     "react-native-autogrow-textinput":"^2.0.3"
   },
   "description": {}
 }

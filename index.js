@@ -9,8 +9,6 @@ import ScrollableTabView, { DefaultTabBar, ScrollableTabBar, } from 'react-nativ
 import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
  
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
- 
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import ActionButton from 'react-native-action-button';
 
