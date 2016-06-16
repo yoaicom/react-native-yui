@@ -15,8 +15,6 @@
      "react-native-drawer":"^2.2.2",
      "react-native-scrollable-tab-view":"^0.4.3",
      "react-native-keyboard-aware-scrollview":"^0.0.7",
-     "react-native-parallax-scroll-view":"^0.18.2",
-     "react-native-parallax":"^0.2.2",
      "react-native-action-button":"^1.1.5",
      "react-native-tabs":"^1.0.7"
   },
