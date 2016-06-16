@@ -25,7 +25,8 @@ export default class InvertedScrollComponent extends Component {
   render() {
     return (
       <ListView
-        renderScrollComponent={props => <InvertibleScrollView {...props} inverted />}
+        //renderScrollComponent={props => <InvertibleScrollView {...props} inverted />}
+        horizontal={false}
         dataSource={this.state.dataSource}
         renderHeader={this._renderHeader.bind(this)}
         renderRow={this._renderRow.bind(this)}
@@ -45,7 +46,7 @@ export default class InvertedScrollComponent extends Component {
   }
 
   _renderRow(row) {
-    return <Text key={row} style={styles.row}>{row}</Text>
+    return <Text onPress= {() => {console.log(row)}}  key={row} style={styles.row}>{row}</Text>
   }
 
   _onPress() {
@@ -66,6 +67,7 @@ let styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
     //alignItems: 'center',
+    transform:[{scaleY: -1}],
     backgroundColor: '#F5FCFF',
   },
   button: {
@@ -73,8 +75,10 @@ let styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'black',
+    transform:[{scaleY: -1}],
   },
   row: {
     padding: 4,
+    transform:[{scaleY: -1}],
   }
 })

@@ -52,8 +52,7 @@ class FacebookTabsExample extends Component {
 };
 class SimpleExample extends Component {
   render() {
-    return <ScrollableTabView
-      style={{marginTop: 20, }}>
+    return <ScrollableTabView>
       <Text tabLabel='Tab #1'>My</Text>
       <Text tabLabel='Tab #2'>favorite</Text>
       <Text tabLabel='Tab #3'>project</Text>

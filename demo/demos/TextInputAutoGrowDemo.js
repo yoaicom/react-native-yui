@@ -2,7 +2,8 @@
 
 import React, {Component} from 'react';
 import {
-    View
+    View,
+  TextInput
 } from 'react-native';
 
 import {AutoGrowingTextInput} from 'react-native-yui';

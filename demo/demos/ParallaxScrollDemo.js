@@ -8,6 +8,7 @@ import {
   ListView,
   PixelRatio,
   StyleSheet,
+  ScrollView
 } from 'react-native';
 
 import {ParallaxScrollView} from 'react-native-yui';
@@ -18,21 +19,24 @@ console.log(window.width);
 class Nested extends Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <View style={{ height: 60, backgroundColor: 'green' }}/>
-        <View style={{ flex: 1, flexDirection: 'row' }}>
-          <View style={{ width: 60, backgroundColor: 'red' }}/>
+        <View style={{ flex: 1, backgroundColor: 'transparent' }}>
+
           <ParallaxScrollView
-            style={{ flex: 1, backgroundColor: 'hotpink', overflow: 'hidden' }}
-            renderBackground={() => <Image source={{ uri: `https://placekitten.com/414/350`, width: window.width, height: 350 }}/>}
+            contentBackgroundColor='white'
+            onChangeHeaderVisibility={(b) => {
+              if(b) {console.log('脑袋能看到')}
+              else{console.log('看不到脑袋了') }
+            }}
+            style={{position: 'absolute',top: 20,left: 0,right:0,backgroundColor: 'transparent', overflow: 'hidden' }}
+            renderBackground={() => <Image style={{backgroundColor: 'transparent'}} source={{ uri: `https://placekitten.com/414/350`, width: window.width, height: 350 }}/>}
             renderFixedHeader={() => <Text style={{ textAlign: 'right', color: 'white', padding: 5, fontSize: 20 }}>Hello</Text>}
             parallaxHeaderHeight={ 350 }>
             <View style={{ alignItems: 'center' }}><Text style={{ fontSize: 30 }}>Meow!</Text></View>
           </ParallaxScrollView>
-          <View style={{ width: 60, backgroundColor: 'orange' }}/>
+          <View style={{position: 'absolute',top: 20,left: 0,right:0,height:44,backgroundColor:'transparent'}}>
+            <Text style={{left: 75,fontSize: 30,alignSelf:'center',color:'white'}} >这里是头部,可以设置导航栏</Text>
+          </View>
         </View>
-        <View style={{ height: 60, backgroundColor: 'blue' }}/>
-      </View>
     );
   }
 }
@@ -44,24 +48,37 @@ export default class Talks extends Component {
       dataSource: new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
       }).cloneWithRows([
-          'Simplicity Matters',
-          'Hammock Driven Development',
-          'Value of Values',
-          'Are We There Yet?',
-          'The Language of the System',
-          'Design, Composition, and Performance',
-          'Clojure core.async',
-          'The Functional Database',
-          'Deconstructing the Database',
-          'Hammock Driven Development',
-          'Value of Values'
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
+          '有爱是一个只生产品质棉条的公司',
         ])
     };
   }
 
   render() {
-    const { onScroll = () => {} } = this.props;
+    const { onScroll = (e) => {
+      const { nativeEvent: { contentOffset: { y: offsetY } } } = e;
+      //console.log('外层Y' + offsetY);
+    } } = this.props;
     return (
+      <View style = {{flex:1}}>
       <ListView
         ref="ListView"
         style={styles.container}
@@ -75,18 +92,22 @@ export default class Talks extends Component {
          )}
         renderScrollComponent={props => (
           <ParallaxScrollView
+           onChangeHeaderVisibility={(b) => {
+              if(b) {console.log('脑袋能看到')}
+              else{console.log('看不到脑袋了') }
+            }}
+            style={{marginTop:0}}
             onScroll={onScroll}
-
             headerBackgroundColor="#333"
             stickyHeaderHeight={ STICKY_HEADER_HEIGHT }
             parallaxHeaderHeight={ PARALLAX_HEADER_HEIGHT }
-            backgroundSpeed={10}
-
+            backgroundSpeed={0.9}
+            backgroundParallaxSpace={100}
+            backgroundParallaxScale={1}
             renderBackground={() => (
               <View key="background">
-                <Image source={{uri: 'https://placekitten.com/414/350',
-                                width: window.width,
-                                height: PARALLAX_HEADER_HEIGHT}}/>
+                <Image source={require('../jpg/banner0@2x.png')}
+                       style = {{width: window.width,height: PARALLAX_HEADER_HEIGHT}}/>
                 <View style={{position: 'absolute',
                               top: 0,
                               width: window.width,
@@ -97,45 +118,32 @@ export default class Talks extends Component {
 
             renderForeground={() => (
               <View key="parallax-header" style={ styles.parallaxHeader }>
-                <Image style={ styles.avatar } source={{
-                  uri: 'https://pbs.twimg.com/profile_images/2694242404/5b0619220a92d391534b0cd89bf5adc1_400x400.jpeg',
-                  width: AVATAR_SIZE,
-                  height: AVATAR_SIZE
-                }}/>
+                <Image style={ [styles.avatar, {width: AVATAR_SIZE,height: AVATAR_SIZE}]}
+                       source={require('../jpg/ren@2x.png')}
+                />
                 <Text style={ styles.sectionSpeakerText }>
-                  Talks by Rich Hickey
+                  Yong Ren
                 </Text>
                 <Text style={ styles.sectionTitleText }>
-                  CTO of Cognitec, Creator of Clojure
-                </Text>
-              </View>
-            )}
-
-            renderStickyHeader={() => (
-              <View key="sticky-header" style={styles.stickySection}>
-                <Text style={styles.stickySectionText}>Rich Hickey Talks</Text>
-              </View>
-            )}
-
-            renderFixedHeader={() => (
-              <View key="fixed-header" style={styles.fixedSection}>
-                <Text style={styles.fixedSectionText}
-                      onPress={() => this.refs.ListView.scrollTo({ x: 0, y: 0 })}>
-                  Scroll to top
+                  CEO of YOAI
                 </Text>
               </View>
             )}
             />
         )}
         />
+        <View style={{position: 'absolute',top: 20,left: 0,right:0,height:44,backgroundColor:'transparent'}}>
+          <Text style={{fontSize: 20,alignSelf:'center',color:'white'}} >Navigator</Text>
+        </View>
+      </View>
     );
   }
 }
 
 const AVATAR_SIZE = 120;
 const ROW_HEIGHT = 60;
-const PARALLAX_HEADER_HEIGHT = 350;
-const STICKY_HEADER_HEIGHT = 70;
+const PARALLAX_HEADER_HEIGHT = 400;
+const STICKY_HEADER_HEIGHT = 44;
 
 const styles = StyleSheet.create({
   container: {
@@ -172,7 +180,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 100
+    marginTop:150
   },
   avatar: {
     marginBottom: 10,
