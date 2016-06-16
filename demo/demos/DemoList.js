@@ -50,6 +50,11 @@ const dataSource = ds.cloneWithRowsAndSections({
     }, {
       name: 'ExpandControl',
       desc: 'blablabla'
+    }],
+  'Parallax Component': [
+    {
+      name: 'ParallaxScroll',
+      desc: '视差效果'
     }]
 });
 

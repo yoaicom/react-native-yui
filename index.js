@@ -59,6 +59,9 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get ParallaxScrollView() {
+  	return require('./library/parallaxScroll/index'); 
   }
 }
 
