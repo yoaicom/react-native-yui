@@ -119,13 +119,13 @@ export default class Talks extends Component {
             renderForeground={() => (
               <View key="parallax-header" style={ styles.parallaxHeader }>
                 <Image style={ [styles.avatar, {width: AVATAR_SIZE,height: AVATAR_SIZE}]}
-                       source={require('../jpg/ren@2x.png')}
+                       source={require('../jpg/head.jpg')}
                 />
                 <Text style={ styles.sectionSpeakerText }>
-                  Yong Ren
+                  Ka Wa Yi De Si Ne
                 </Text>
                 <Text style={ styles.sectionTitleText }>
-                  CEO of YOAI
+                  I don't who she is
                 </Text>
               </View>
             )}
