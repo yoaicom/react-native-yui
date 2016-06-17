@@ -12,11 +12,19 @@ import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
+import TextInputAutoGrowDemo from './demos/TextInputAutoGrowDemo';
 
 
+export default class Demo1 extends  Component {
 
+  render() {
+    return (
+      <TextInputAutoGrowDemo></TextInputAutoGrowDemo>
+    )
+  }
+}
 
-export default class Demo extends Component {
+class Demo extends Component {
   render() {
     return (
       <Navigator
@@ -56,6 +64,9 @@ export default class Demo extends Component {
     }
     if(route.name === 'MediaKit') {
       return <MediaKitDemo />
+    }
+    if(route.name === 'TextInputAutoGrow') {
+      return <TextInputAutoGrowDemo />
     }
   }
 }

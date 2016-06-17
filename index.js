@@ -59,7 +59,8 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
-  }
+  },
+  get ExtendibleTextInput() {return require('./library/ExtendibleTextInput').default },
 }
 
 module.exports = YUI;

@@ -42,6 +42,10 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
+    },
+    {
+      name: 'TextInputAutoGrow',
+      desc: '自动增长的TextInput'
     },],
   'Control Components': [
     {
