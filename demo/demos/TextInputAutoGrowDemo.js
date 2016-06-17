@@ -39,7 +39,6 @@ export default class Demo extends Component {
           isExtendible={this.state.isExtendible}
           style={{borderWidth:1,width:200,height:38,fontSize: 29,position:'absolute',top:200,left:87.5}}
           onHeightExtended={(newHeight,lastHeight,addedHeight) => {this.setState({newHeight,lastHeight,addedHeight})
-          console.log('高度变了')
           }}
 
         />

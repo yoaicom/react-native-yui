@@ -14,17 +14,7 @@ import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 import TextInputAutoGrowDemo from './demos/TextInputAutoGrowDemo';
 
-
-export default class Demo1 extends  Component {
-
-  render() {
-    return (
-      <TextInputAutoGrowDemo></TextInputAutoGrowDemo>
-    )
-  }
-}
-
-class Demo extends Component {
+export default class Demo extends Component {
   render() {
     return (
       <Navigator
