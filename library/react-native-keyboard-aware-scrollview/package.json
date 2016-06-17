@@ -1,0 +1,85 @@
+{
+  "_args": [
+    [
+      "react-native-keyboard-aware-scrollview",
+      "/Users/zhangtian/Desktop/react-native-yui/demo"
+    ]
+  ],
+  "_from": "react-native-keyboard-aware-scrollview@*",
+  "_id": "react-native-keyboard-aware-scrollview@1.0.3",
+  "_inCache": true,
+  "_location": "/react-native-keyboard-aware-scrollview",
+  "_nodeVersion": "4.2.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/react-native-keyboard-aware-scrollview-1.0.3.tgz_1465237585164_0.045389847829937935"
+  },
+  "_npmUser": {
+    "email": "artald@wix.com",
+    "name": "artald"
+  },
+  "_npmVersion": "3.8.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-native-keyboard-aware-scrollview",
+    "raw": "react-native-keyboard-aware-scrollview",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-keyboard-aware-scrollview/-/react-native-keyboard-aware-scrollview-1.0.3.tgz",
+  "_shasum": "5dc1099fd7a0a25818753f23a38b49ac25d134fe",
+  "_shrinkwrap": null,
+  "_spec": "react-native-keyboard-aware-scrollview",
+  "_where": "/Users/zhangtian/Desktop/react-native-yui/demo",
+  "author": {
+    "email": "artald@wix.com",
+    "name": "Artal Druk"
+  },
+  "bugs": {
+    "url": "https://github.com/wix/react-native-keyboard-aware-scrollview/issues"
+  },
+  "dependencies": {},
+  "description": "React Native Keyboard Aware ScrollView - auto adjust content ScrollView",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "5dc1099fd7a0a25818753f23a38b49ac25d134fe",
+    "tarball": "https://registry.npmjs.org/react-native-keyboard-aware-scrollview/-/react-native-keyboard-aware-scrollview-1.0.3.tgz"
+  },
+  "gitHead": "4893ba7a488b204f12645570f334529c7843dc7e",
+  "homepage": "https://github.com/wix/react-native-keyboard-aware-scrollview",
+  "installable": true,
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "artald",
+      "email": "artald@wix.com"
+    },
+    {
+      "name": "rotemmiz",
+      "email": "rotemm@wix.com"
+    }
+  ],
+  "name": "react-native-keyboard-aware-scrollview",
+  "nativePackage": true,
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=0.14.5",
+    "react-native": ">=0.25.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wix/react-native-keyboard-aware-scrollview.git"
+  },
+  "scripts": {},
+  "version": "1.0.3"
+}

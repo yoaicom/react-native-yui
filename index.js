@@ -2,6 +2,8 @@
 
 import ReactNative from 'react-native';
 
+import {KeyboardAwareScrollView} from './library/react-native-keyboard-aware-scrollview/index';
+
 var YUI = {
   get View() {
     return ReactNative.View;
@@ -59,6 +61,9 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get KeyboardAwareScrollView() {
+    return KeyboardAwareScrollView;
   }
 }
 

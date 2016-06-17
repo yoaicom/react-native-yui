@@ -42,7 +42,12 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+    {
+      name: 'KeyboardAwareScrollView',
+      desc: '能够响应键盘弹出自动上移'
+    },
+  ],
   'Control Components': [
     {
       name: 'RefreshControl',
