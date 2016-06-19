@@ -42,7 +42,12 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+    {
+      name: 'ParallaxView',
+      desc: '视差效果'
+    },
+  ],
   'Control Components': [
     {
       name: 'RefreshControl',
