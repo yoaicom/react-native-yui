@@ -42,7 +42,12 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+    {
+      name: 'ParsedText',
+      desc: '文本转换超链接'
+    },
+  ],
   'Control Components': [
     {
       name: 'RefreshControl',

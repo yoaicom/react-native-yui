@@ -12,9 +12,7 @@ import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
-
-
-
+import ParsedTextDemo from './demos/ParsedText';
 
 export default class Demo extends Component {
   render() {
@@ -56,6 +54,8 @@ export default class Demo extends Component {
     }
     if(route.name === 'MediaKit') {
       return <MediaKitDemo />
+    }if(route.name === 'ParsedText') {
+      return <ParsedTextDemo />
     }
   }
 }

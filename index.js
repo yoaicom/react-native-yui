@@ -59,6 +59,9 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get ParsedText() {
+    return require('./library/ParseText').default;
   }
 }
 
