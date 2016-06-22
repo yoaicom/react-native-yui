@@ -13,9 +13,6 @@ import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 
-
-
-
 export default class Demo extends Component {
   render() {
     return (
