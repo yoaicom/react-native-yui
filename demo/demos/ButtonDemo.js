@@ -13,6 +13,14 @@ import {Button} from 'react-native-yui';
 export default class ButtonDemo extends Component {
 
   render() {
+
+    var animations = {
+      duration: 50,
+      create: {},
+      update: {
+        springDamping: 0.7
+      }
+    };
     return (
       <View style={{backgroundColor:'#B3E0DE',flex:1}}>
         <Button
@@ -24,6 +32,7 @@ export default class ButtonDemo extends Component {
           // source={require('../jpg/head.jpg')}
           activeImageStyle={{width:80,height:80}}
           animated={true}
+          animations={animations}
           onLongPress={() => {
           console.log('onLongPress...');
         }}

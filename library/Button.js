@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 
 import {
-  Platform,
   View,
   Text,
   Image,
@@ -14,7 +13,7 @@ import {
 } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
-const emptyView = <View/>
+const emptyView = <View/>;
 
 export default class Button extends Component {
 
@@ -24,32 +23,21 @@ export default class Button extends Component {
     this.state = {
       active: false,
       shouldCover: false,
-      imageHeight: 0,
-      imageWidth: 0
-    },
-
-      this.animations = {
-        duration: 300,
-        create: {},
-        update: {
-          springDamping: 0.7,
-        },
-      };
+    };
   }
 
-  _getImageStyle() {
+  _getRenderStyle(style, targetStyle) {
     let isEmptyObject = true;
-    for (let prop in this.props.imageStyle) {
+    for (let prop in style) {
       isEmptyObject = false;
       break;
     }
-    if (this.props.imageStyle && !isEmptyObject) {
-      console.log(this.props.imageStyle)
-      return this.props.imageStyle
+    if (style && !isEmptyObject) {
+      return style
     } else {
       return {
-        height: this.props.style.height ? this.props.style.height : height,
-        width: this.props.style.width ? this.props.style.width : width
+        height: style.height ? targetStyle.height : height,
+        width: style.width ? targetStyle.width : width
       }
     }
   }
@@ -78,7 +66,6 @@ export default class Button extends Component {
     } else {
       return (emptyView)
     }
-
   }
 
   render() {
@@ -88,24 +75,23 @@ export default class Button extends Component {
     }
 
     let containerStyle = {
-      ...this.props.style,
+      ...this.props.style
     };
 
     let fontStyle = {
       ...this.props.fontStyle
     };
 
-    let imageStyle = this._getImageStyle();
+    let imageStyle = this._getRenderStyle(this.props.imageStyle, this.props.style);
 
-    let idDisabled = this.props.disabled ? {backgroundColor:'#DDDFDE',opacity: 0.3} : {};
-
+    let idDisabled = this.props.disabled ? {backgroundColor: '#DDDFDE'} : {};
 
     if (this.state.active) {
       if (this.props.activeFontColor) {
         fontStyle.color = this.props.activeFontColor;
       }
       if (this.props.activeImageStyle) {
-        imageStyle = this.props.activeImageStyle;
+        imageStyle = this.props.activeImageStyle
       }
       if (this.props.activeStyle) {
         containerStyle = this.props.activeStyle
@@ -120,6 +106,7 @@ export default class Button extends Component {
         onPressOut={this.onPressOut.bind(this)}
         activeOpacity={activeOpacity}
         style={[containerStyle,idDisabled,{overflow:'hidden',alignItems: 'center',justifyContent: 'center'}]}
+        onLayout={(event) => {}}
       >
         {this._renderImage(imageStyle)}
         {this._renderText(fontStyle)}
@@ -129,7 +116,7 @@ export default class Button extends Component {
 
   componentWillUpdate() {
     if (this.props.animated) {
-      LayoutAnimation.configureNext(this.animations);
+      LayoutAnimation.configureNext(this.props.animations);
     }
   }
 
@@ -149,3 +136,26 @@ export default class Button extends Component {
     });
   }
 }
+
+Button.propTypes = {
+  fontStyle: PropTypes.object,
+  imageStyle: PropTypes.object,
+  activeStyle: PropTypes.object,
+  activeFontColor: PropTypes.string,
+  activeImageStyle: PropTypes.object,
+  animated: PropTypes.bool,
+  animations: PropTypes.object,
+  onPressIn: PropTypes.func,
+  onPressOut: PropTypes.func
+};
+
+Button.defaultProps = {
+  animated: true,
+  animations: {
+    duration: 200,
+    create: {},
+    update: {
+      springDamping: 0.7
+    }
+  },
+};
