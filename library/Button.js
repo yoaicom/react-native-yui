@@ -96,7 +96,10 @@ export default class Button extends Component {
     };
 
     let imageStyle = this._getImageStyle();
-    
+
+    let idDisabled = this.props.disabled ? {backgroundColor:'#DDDFDE',opacity: 0.3} : {};
+
+
     if (this.state.active) {
       if (this.props.activeFontColor) {
         fontStyle.color = this.props.activeFontColor;
@@ -116,7 +119,7 @@ export default class Button extends Component {
         onPressIn={this.onPressIn.bind(this)}
         onPressOut={this.onPressOut.bind(this)}
         activeOpacity={activeOpacity}
-        style={[containerStyle,{overflow:'hidden',alignItems: 'center',justifyContent: 'center'}]}
+        style={[containerStyle,idDisabled,{overflow:'hidden',alignItems: 'center',justifyContent: 'center'}]}
       >
         {this._renderImage(imageStyle)}
         {this._renderText(fontStyle)}

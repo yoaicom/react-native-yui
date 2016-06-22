@@ -14,7 +14,7 @@ export default class ButtonDemo extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{backgroundColor:'#B3E0DE',flex:1}}>
         <Button
           style={{marginHorizontal:150, height: 40, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 50}}
           fontStyle={{fontSize: 16, color: '#0033FF',alignSelf:'center'}}
@@ -62,7 +62,7 @@ export default class ButtonDemo extends Component {
 
         </Button>
         <Button
-          style={{marginTop:30, marginHorizontal:145, height: 80, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 50}}
+          style={{marginTop:30, marginHorizontal:145, height: 80, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
           imageStyle={{height:50,width:50}}
           activeStyle={{marginTop:20,marginHorizontal:120, height: 100, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
           source={require('../jpg/head.jpg')}
@@ -82,6 +82,29 @@ export default class ButtonDemo extends Component {
         }}
         >
           安装
+        </Button>
+        <Button
+          style={{marginTop:30, marginHorizontal:145, height: 80, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
+          imageStyle={{height:50,width:50}}
+          activeStyle={{marginTop:20,marginHorizontal:120, height: 100, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
+          source={require('../jpg/head.jpg')}
+          // activeImageStyle={{width:80,height:80}}
+          animated={true}
+          disabled={true}
+          onLongPress={() => {
+          console.log('onLongPress...');
+        }}
+          onPress={() => {
+          console.log('onPress...');
+        }}
+          onPressIn={() => {
+          console.log('onPressIn...');
+        }}
+          onPressOut={() => {
+          console.log('onPressOut...');
+        }}
+        >
+          Disabled
         </Button>
       </View>
     );
