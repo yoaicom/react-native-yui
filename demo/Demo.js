@@ -14,8 +14,15 @@ import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 import ParallaxViewDemo from './demos/ParallaxViewDemo';
 
+export default class Demo1 extends Component {
+  render() {
+    return (
+      <ParallaxViewDemo/>
+    )
+  }
+}
 
-export default class Demo extends Component {
+class Demo extends Component {
   render() {
     return (
       <Navigator
