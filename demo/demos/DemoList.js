@@ -42,7 +42,27 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+  ],
+  'Higher Basic Components': [
+    {
+      name: 'InvertibleScrollView',
+      desc: '反向ScrollView'
+    },
+    {
+      name: 'KeyboardAwareScrollViewDemo',
+      desc: '响应键盘时对话框自动上移'
+    },
+    {
+      name: 'ActionButton',
+      desc: '收缩Button',
+    },
+    {
+      name: 'TextInputAutoGrowDemo',
+      desc: '自动换行TextInput',
+    },
+  ],
+
   'Control Components': [
     {
       name: 'RefreshControl',
@@ -50,7 +70,39 @@ const dataSource = ds.cloneWithRowsAndSections({
     }, {
       name: 'ExpandControl',
       desc: 'blablabla'
-    }]
+    }
+  ],
+  'ParallaxView Components': [
+    {
+      name: 'ParallaxView',
+      desc: '视差效果'
+    },
+    {
+      name: 'ParallaxScrollView',
+      desc: '视差效果2'
+    },
+  ],
+  'Nav': [
+    {
+      name: 'ScrollableTabView',
+      desc: '可滚动的TabView'
+    },
+    {
+      name: 'TabsView',
+      desc: '底部标签栏'
+    },
+  ],
+  'Layout Components': [
+    {
+      name: 'DrawerView',
+      desc: '抽屉'
+    },
+    {
+      name: 'PortableGirdViewDemo',
+      desc: '可移动的九宫格'
+    },
+  ],
+
 });
 
 export default class DemoList extends Component {

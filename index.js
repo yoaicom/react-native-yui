@@ -2,6 +2,18 @@
 
 import ReactNative from 'react-native';
 
+import Drawer from 'react-native-drawer';
+
+import ScrollableTabView, { DefaultTabBar, ScrollableTabBar, } from 'react-native-scrollable-tab-view';
+
+import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
+ 
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
+
+import ActionButton from 'react-native-action-button';
+
+import Tabs from 'react-native-tabs';
+
 var YUI = {
   get View() {
     return ReactNative.View;
@@ -59,7 +71,27 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
-  }
+  },
+	 
+	get ScrollableTabView() {return ScrollableTabView; },
+	get DefaultTabBar() {return DefaultTabBar; },
+	get ScrollableTabBar() {return ScrollableTabBar; },	 
+   
+  get AutoGrowingTextInput() {return AutoGrowingTextInput; },
+   
+  get KeyboardAwareScrollView() {return KeyboardAwareScrollView; },
+   
+  get ParallaxScrollView() {
+  	return require('./library/parallaxScroll/index'); 
+  },
+      
+  get Parallax() {
+  	return require('./library/react-native-parallax/index'); 
+  	},
+	 
+	get ActionButton() {return ActionButton; },
+	 
+	get Tabs() {return Tabs; },
 }
 
 module.exports = YUI;

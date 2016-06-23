@@ -1,6 +1,4 @@
 # react-native-yui
-**Still under developing, do NOT use**  
-
 此项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
 
 对于此项目应该囊括哪些组件，我们有以下考虑：
@@ -65,7 +63,16 @@
 
 #### 特效组件
 
-1. 待补充
-2. ​
+1. [InvertibleScrollView](https://github.com/exponentjs/react-native-invertible-scroll-view)
+2. [KeyboardAwareScrollViewDemo](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+3. [ActionButton](https://github.com/mastermoo/react-native-action-button)
+4. [TextInputAutoGrowDemo](https://github.com/wix/react-native-autogrow-textinput)
+5. [ButtonApslDmeo](https://github.com/APSL/react-native-button)
+6. [Toast](https://github.com/magicismight/react-native-root-toast)
+7. [ParallaxView](https://github.com/oblador/react-native-parallax)
+8. [ParallaxScrollView](https://github.com/jaysoo/react-native-parallax-scroll-view)
+9. [ScrollableTabView](https://github.com/skv-headless/react-native-scrollable-tab-view)
+10. [TabsView](https://github.com/aksonov/react-native-tabs)
+11. [DrawerView](https://github.com/root-two/react-native-drawer)
 
 
