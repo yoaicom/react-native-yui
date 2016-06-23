@@ -5,7 +5,8 @@ import {
   TouchableHighlight,
   View,
   Text,
-  PixelRatio
+  PixelRatio,
+  LayoutAnimation
 } from 'react-native';
 
 import {Button} from 'react-native-yui';
@@ -13,14 +14,17 @@ import {Button} from 'react-native-yui';
 export default class ButtonDemo extends Component {
 
   render() {
-
     var animations = {
-      duration: 50,
-      create: {},
+      duration: 200,
+      create: {
+        type: LayoutAnimation.Types.linear,
+        property: LayoutAnimation.Properties.opacity,
+      },
       update: {
-        springDamping: 0.7
-      }
+        type: LayoutAnimation.Types.easeInEaseOut,
+      },
     };
+
     return (
       <View style={{backgroundColor:'#B3E0DE',flex:1}}>
         <Button

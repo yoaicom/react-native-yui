@@ -9,8 +9,14 @@ import {
   Image,
   TouchableOpacity,
   LayoutAnimation,
-  Dimensions
+  Dimensions,
+  Platform,
+  UIManager
 } from 'react-native';
+
+if (Platform.OS === 'android') {
+  UIManager.setLayoutAnimationEnabledExperimental(true)
+}
 
 const {width, height} = Dimensions.get('window');
 const emptyView = <View/>;
@@ -27,14 +33,23 @@ export default class Button extends Component {
   }
 
   _getRenderStyle(style, targetStyle) {
+
     let isEmptyObject = true;
     for (let prop in style) {
       isEmptyObject = false;
       break;
     }
+
     if (style && !isEmptyObject) {
       return style
-    } else {
+    }
+    else if (!style) {
+      return {
+        height: targetStyle.height ? targetStyle.height : height,
+        width: targetStyle.width ? targetStyle.width : width
+      }
+    }
+    else {
       return {
         height: style.height ? targetStyle.height : height,
         width: style.width ? targetStyle.width : width
@@ -95,6 +110,9 @@ export default class Button extends Component {
       }
       if (this.props.activeStyle) {
         containerStyle = this.props.activeStyle
+        if (!this.props.activeImageStyle && !this.props.children) {
+          imageStyle = this._getRenderStyle(this.props.activeImageStyle, this.props.activeStyle);
+        }
       }
     }
 
@@ -138,6 +156,7 @@ export default class Button extends Component {
 }
 
 Button.propTypes = {
+  style: PropTypes.object,
   fontStyle: PropTypes.object,
   imageStyle: PropTypes.object,
   activeStyle: PropTypes.object,
@@ -151,11 +170,15 @@ Button.propTypes = {
 
 Button.defaultProps = {
   animated: true,
+  imageStyle: {},
   animations: {
     duration: 200,
-    create: {},
+    create: {
+      type: LayoutAnimation.Types.linear,
+      property: LayoutAnimation.Properties.opacity,
+    },
     update: {
-      springDamping: 0.7
+      type: LayoutAnimation.Types.easeInEaseOut,
     }
-  },
+  }
 };
