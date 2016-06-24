@@ -10,7 +10,7 @@ var YUI = {
     return ReactNative.Text;
   },
   get TextInput() {
-    return ReactNative.TextInput;
+    return require('./library/ExtendibleTextInput').default;
   },
   get Image() {
     return ReactNative.Image;

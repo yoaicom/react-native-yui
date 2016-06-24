@@ -3,11 +3,10 @@
 import React, {Component} from 'react';
 import {
   View,
-  TextInput,
   Text
 } from 'react-native';
 
-import {ExtendibleTextInput} from 'react-native-yui';
+import {TextInput} from 'react-native-yui';
 
 export default class Demo extends Component {
 
@@ -33,7 +32,7 @@ export default class Demo extends Component {
           style={{marginTop:20}}>点我切换拉伸模式</Text>
         <Text style={{fontSize: 20}}> {this.state.isExtendible ? '拉伸' : '不可拉伸'} </Text>
 
-        <ExtendibleTextInput
+        <TextInput
           placeholder={'Writing.....'}
           maxHeight={this.state.maxHeight}
           isExtendible={this.state.isExtendible}
