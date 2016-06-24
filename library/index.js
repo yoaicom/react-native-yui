@@ -19,22 +19,22 @@ var YUI = {
     return ReactNative.Image;
   },
   get ActivityIndicator() {
-    return require('./library/ActivityIndicator').default;
+    return require('./ActivityIndicator').default;
   },
   get ProgressBar() {
-    return require('./library/ProgressBar').default;
+    return require('./ProgressBar').default;
   },
   get Slider() {
     ReactNative.Slider
   },
   get Button() {
-    return require('./library/Button').default;
+    return require('./Button').default;
   },
   get Switch() {
     return ReactNative.Switch;
   },
   get TabBar() {
-    return require('./library/tabbar/TabBar').default;
+    return require('./tabbar/TabBar').default;
   },
   get ScrollView() {
     return ReactNative.ScrollView;
@@ -43,7 +43,7 @@ var YUI = {
     return ReactNative.ListView;
   },
   get ViewPager() {
-    return require('./library/viewpager/ViewPager').default;
+    return require('./viewpager/ViewPager').default;
   },
   get Picker() {
     return ReactNative.Picker;
