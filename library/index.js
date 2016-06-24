@@ -6,6 +6,9 @@ var YUI = {
   get View() {
     return ReactNative.View;
   },
+  get TouchableOpacity() {
+    return ReactNative.TouchableOpacity;
+  },
   get Text() {
     return ReactNative.Text;
   },
