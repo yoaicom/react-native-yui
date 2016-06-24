@@ -79,22 +79,20 @@ export default class TabBar extends Component {
       if(this.props.renderContent) {
         content = this.props.renderContent(i, this.state.selectedTab, this);
       }
-      if(!content) {
-        content = <View />;
-      }
 
-      content.props.style.width = this.state.width;
-      content.props.style.height = this.state.height;
-
-
-      contents.push(content);
+      contents.push(
+        <View
+          key={'tabContent#' + i}
+          collapsable={true}
+          style={{width: this.state.width, height: this.state.height}}>
+          content
+        </View>
+      );
     }
     return contents;
   }
 
   render() {
-    console.log('render...' + JSON.stringify(this.state));
-
     return (
       <View
         {...this.props}>
@@ -121,7 +119,6 @@ export default class TabBar extends Component {
   }
 
   _onLayout(e) {
-    console.log('onLayout...' + JSON.stringify(e.nativeEvent));
     let {width, height} = e.nativeEvent.layout;
     this.setState({width, height});
   }

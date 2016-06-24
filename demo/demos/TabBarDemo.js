@@ -51,8 +51,7 @@ export default class TabBarDemo extends Component {
   _renderContent(index, selectedTab, tabBar: TabBar) {
     return (
       <Image
-        key={'tabContent#' + index}
-        style={{resizeMode: 'contain'}} //width and height will be provided by tabBar
+        style={{resizeMode: 'contain', width: 300, height: 300}}
         source={{uri: images[index]}}
       />
     );
