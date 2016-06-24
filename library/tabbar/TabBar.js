@@ -78,14 +78,15 @@ export default class TabBar extends Component {
       let content = null;
       if(this.props.renderContent) {
         content = this.props.renderContent(i, this.state.selectedTab, this);
-
-        if(!content) {
-          content = <View />;
-        }
-
-        content.props.style.width = this.state.width;
-        content.props.style.height = this.state.height;
       }
+      if(!content) {
+        content = <View />;
+      }
+
+      content.props.style.width = this.state.width;
+      content.props.style.height = this.state.height;
+
+
       contents.push(content);
     }
     return contents;
