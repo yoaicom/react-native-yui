@@ -85,7 +85,7 @@ export default class TabBar extends Component {
           key={'tabContent#' + i}
           collapsable={true}
           style={{width: this.state.width, height: this.state.height}}>
-          content
+          {content}
         </View>
       );
     }
