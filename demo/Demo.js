@@ -14,9 +14,21 @@ import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 
 
+export default class  extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
 
-export default class Demo extends Component {
+  render () {
+    return(
+      <ButtonDemo/>
+    )
+  }
+}
+
+class Demo extends Component {
   render() {
     return (
       <Navigator

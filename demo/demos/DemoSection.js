@@ -8,6 +8,9 @@ import {
 export default class DemoSection extends Component {
 
   render() {
+
+    let {flexDirection,justifyContent} = this.props.style;
+
     return (
       <View
         style={[this.props.style, {flexDirection: 'column', margin: 5, borderColor: '#ccc', borderWidth: 1 / PixelRatio.get(), borderRadius: 2}]}>
@@ -18,7 +21,7 @@ export default class DemoSection extends Component {
         </View>
 
         <View
-          style={{paddingHorizontal: 5, paddingVertical: 8}}>
+          style={{paddingHorizontal: 5, paddingVertical: 8,flexDirection:flexDirection?flexDirection:'column',justifyContent:justifyContent?justifyContent:'center'}}>
           {this.props.children}
         </View>
       </View>
