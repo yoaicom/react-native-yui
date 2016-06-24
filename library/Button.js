@@ -28,7 +28,6 @@ export default class Button extends Component {
 
     this.state = {
       active: false,
-      shouldCover: false,
     };
   }
 
@@ -40,42 +39,61 @@ export default class Button extends Component {
       break;
     }
 
-    if (style && !isEmptyObject) {
-      return style
-    }
-    else if (!style) {
+    if (!style || isEmptyObject) {
+      console.log(2);
       return {
         height: targetStyle.height ? targetStyle.height : height,
         width: targetStyle.width ? targetStyle.width : width
       }
     }
-    else {
-      return {
-        height: style.height ? targetStyle.height : height,
-        width: style.width ? targetStyle.width : width
-      }
-    }
+    return style;
   }
 
   _renderImage(imageStyle) {
+    console.log('_renderImage...' + JSON.stringify(imageStyle));
     let resizeMode = this.props.children ? 'contain' : 'cover';
     if (this.props.source) {
-      return (
-        <Image
-          source={this.props.source}
+      let highLightImage =
+        this.state.active ? (<Image
+          source={this.props.activeSource}
           style={[imageStyle,{resizeMode:resizeMode}]}
-        />
-      )
-    } else {
+        />) : (emptyView);
+      return (
+        <View
+          style={[imageStyle]}
+        >
+          <Image
+            source={this.props.source}
+            style={[{height:imageStyle.height,width:imageStyle.width,resizeMode:'contain',position:'absolute'}]}
+          />
+          {highLightImage}
+        </View>
+      );
+    }
+    else {
       return (emptyView)
     }
   }
 
   _renderText(fontStyle) {
-    if (this.props.children && typeof this.props.children === 'string') {
+
+    if (this.props.text) {
+
+      let _text = this.props.text;
+
+      if (this.props.activeText && this.state.active) {
+        _text = this.props.activeText
+      }
+
       return (
         <View>
-          <Text style={fontStyle}>{this.props.children}</Text>
+          <Text style={[fontStyle]}>{_text}</Text>
+        </View>
+      )
+    } else if (this.props.children && typeof this.props.children === 'string') {
+      return (
+        <View>
+          <Text style={[fontStyle]}>{this.props.children}</Text>
         </View>
       )
     } else {
@@ -84,37 +102,58 @@ export default class Button extends Component {
   }
 
   render() {
+
+    let {active} = this.state;
+
+    let {
+      style,
+      activeStyle,
+      text,
+      activeText,
+      fontStyle,
+      activeFontStyle,
+      activeSource,
+      imageStyle,
+      activeImageStyle,
+      type,
+      children,
+    } = this.props;
+
     let activeOpacity = 0.5;
-    if (this.props.activeStyle || this.props.activeFontColor || this.props.activeImageStyle) {
+    if (activeStyle || activeFontStyle || activeImageStyle || activeText || activeSource) {
       activeOpacity = 1;
     }
 
-    let containerStyle = {
-      ...this.props.style
-    };
+    let _containerStyle = {...style};
 
-    let fontStyle = {
-      ...this.props.fontStyle
-    };
+    let _viewStyle = this._getRenderStyle(undefined, style);
 
-    let imageStyle = this._getRenderStyle(this.props.imageStyle, this.props.style);
+    let _fontStyle = {...fontStyle};
 
-    let idDisabled = this.props.disabled ? {backgroundColor: '#DDDFDE'} : {};
+    let _imageStyle = this._getRenderStyle(imageStyle, style);
 
-    if (this.state.active) {
-      if (this.props.activeFontColor) {
-        fontStyle.color = this.props.activeFontColor;
+    let _flexDirectionStyle = {flexDirection: type == 'left' || type == 'right' ? 'row' : 'column'};
+
+    if (active) {
+      if (activeFontStyle) {
+        _fontStyle = activeFontStyle;
       }
-      if (this.props.activeImageStyle) {
-        imageStyle = this.props.activeImageStyle
+      if (activeImageStyle) {
+        _imageStyle = activeImageStyle
       }
-      if (this.props.activeStyle) {
-        containerStyle = this.props.activeStyle
-        if (!this.props.activeImageStyle && !this.props.children) {
-          imageStyle = this._getRenderStyle(this.props.activeImageStyle, this.props.activeStyle);
+      if (activeStyle) {
+        _containerStyle = activeStyle
+        _viewStyle = this._getRenderStyle(undefined, activeStyle)
+        if (!activeImageStyle && !children) {
+          _imageStyle = this._getRenderStyle(activeImageStyle, activeStyle);
         }
       }
     }
+
+    let _image = this._renderImage(_imageStyle);
+
+    let front = type == 'left' || type == 'top' ? this._renderText(_fontStyle) : _image;
+    let behind = type == 'left' || type == 'top' ? _image : this._renderText(_fontStyle);
 
     return (
       <TouchableOpacity
@@ -123,11 +162,15 @@ export default class Button extends Component {
         onPressIn={this.onPressIn.bind(this)}
         onPressOut={this.onPressOut.bind(this)}
         activeOpacity={activeOpacity}
-        style={[containerStyle,idDisabled,{overflow:'hidden',alignItems: 'center',justifyContent: 'center'}]}
+        style={[_containerStyle,{overflow:'hidden'}]}
         onLayout={(event) => {}}
       >
-        {this._renderImage(imageStyle)}
-        {this._renderText(fontStyle)}
+        <View
+          style={[_viewStyle,_flexDirectionStyle,{alignItems: 'center',justifyContent: 'center',flex:1}]}
+        >
+          {front}
+          {behind}
+        </View>
       </TouchableOpacity>
     );
   }
@@ -156,11 +199,14 @@ export default class Button extends Component {
 }
 
 Button.propTypes = {
+  type: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+  text: PropTypes.string,
+  activeText: PropTypes.string,
   style: PropTypes.object,
   fontStyle: PropTypes.object,
   imageStyle: PropTypes.object,
   activeStyle: PropTypes.object,
-  activeFontColor: PropTypes.string,
+  activeFontStyle: PropTypes.object,
   activeImageStyle: PropTypes.object,
   animated: PropTypes.bool,
   animations: PropTypes.object,
@@ -169,7 +215,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  animated: true,
+  animated: false,
+  type: 'bottom',
   imageStyle: {},
   animations: {
     duration: 200,
