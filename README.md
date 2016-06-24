@@ -1,6 +1,4 @@
 # react-native-yui
-**Still under developing, do NOT use**  
-
 此项目志在提供一个性能高、功能全、简单易用、iOS/Android通用的UI库，造福RN开发者。
 
 对于此项目应该囊括哪些组件，我们有以下考虑：
@@ -19,7 +17,7 @@
 
 1. [Text](https://facebook.github.io/react-native/docs/text.html)
 
-2. [TextInput](https://facebook.github.io/react-native/docs/textinput.html)
+2. [TextInput](https://facebook.github.io/react-native/docs/textinput.html) 
 
 3. [Image](https://facebook.github.io/react-native/docs/image.html)
 
@@ -51,9 +49,20 @@
 
     待实现
 
-16. ​
+16. ​**ExtendibleTextInput** 
 
-    ​
+	可拉伸的TextInput,可以识别Textinput内容的大小自动向下拉伸.
+	
+	
+	Prop             | Default       | Type          | Description|
+	------------     | ------------- | ------------  | -----------
+	maxHeight        | null          | number        | 可拉伸到的最大长度 |
+	onHeightExtended | -             | func          | 当高度拉伸时的回调,返回新高度,变化之前高度,高度差|
+	
+	TODO: 可调节行高,行间距.
+
+ 
+   ​
 
 #### 控制组件
 

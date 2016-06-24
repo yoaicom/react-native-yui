@@ -10,7 +10,7 @@ var YUI = {
     return ReactNative.Text;
   },
   get TextInput() {
-    return ReactNative.TextInput;
+    return require('./library/ExtendibleTextInput').default;
   },
   get Image() {
     return ReactNative.Image;
@@ -59,7 +59,10 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get ExtendibleTextInput() {
+    return require('./library/ExtendibleTextInput').default
   }
-}
+};
 
 module.exports = YUI;
