@@ -27,7 +27,9 @@ export default class Button extends Component {
     super(props);
 
     this.state = {
-      active: false
+      active: false,
+      source: props.source,
+      isActiveImage: false
     };
   }
 
@@ -56,22 +58,14 @@ export default class Button extends Component {
     }
 
     if (this.props.source) {
-      let highLightImage =
-        this.state.active && this.props.activeSource
-          ? (<Image
-          source={this.props.activeSource}
-          style={{..._imageStyle,resizeMode:resizeMode}}
-        />)
-          : (emptyView);
       return (
         <View
           style={{..._imageStyle}}
         >
           <Image
-            source={this.props.source}
+            source={this.state.source}
             style={[{height:imageStyle.height,width:imageStyle.width,resizeMode:resizeMode,position:'absolute'}]}
           />
-          {highLightImage}
         </View>
       );
     }
@@ -132,6 +126,7 @@ export default class Button extends Component {
     let _imageStyle = this._getRenderStyle(imageStyle, style);
 
     if (active) {
+
       if (activeFontStyle) {
         _fontStyle = activeFontStyle;
       }
@@ -197,6 +192,13 @@ export default class Button extends Component {
     this.setState({
       active: true
     });
+    if (this.props.activeSource) {
+      this.setState({
+        isActiveImage:true,
+        source:this.props.activeSource
+      });
+      this.forceUpdate();
+    }
   }
 
   onPressOut() {
@@ -205,6 +207,13 @@ export default class Button extends Component {
     this.setState({
       active: false
     });
+    if(this.state.isActiveImage) {
+      this.setState({
+        isActiveImage:false,
+        source:this.props.source
+      });
+      this.forceUpdate();
+    }
   }
 }
 
