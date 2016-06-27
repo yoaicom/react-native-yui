@@ -13,22 +13,7 @@ import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 
-
-export default class  extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-
-  render () {
-    return(
-      <ButtonDemo/>
-    )
-  }
-}
-
-class Demo extends Component {
+export default class Demo extends Component {
   render() {
     return (
       <Navigator
