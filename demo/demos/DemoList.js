@@ -29,7 +29,7 @@ const dataSource = ds.cloneWithRowsAndSections({
     },
     {
       name: 'Button',
-      desc: '具有高亮变化的按钮'
+      desc: '可设置图片和文字的按钮'
     },
     {
       name: 'ViewPager',
