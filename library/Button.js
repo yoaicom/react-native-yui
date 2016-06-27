@@ -27,7 +27,7 @@ export default class Button extends Component {
     super(props);
 
     this.state = {
-      active: false,
+      active: false
     };
   }
 
@@ -40,7 +40,6 @@ export default class Button extends Component {
     }
 
     if (!style || isEmptyObject) {
-      console.log(2);
       return {
         height: targetStyle.height ? targetStyle.height : height,
         width: targetStyle.width ? targetStyle.width : width
@@ -50,21 +49,27 @@ export default class Button extends Component {
   }
 
   _renderImage(imageStyle) {
-    console.log('_renderImage...' + JSON.stringify(imageStyle));
-    let resizeMode = this.props.children ? 'contain' : 'cover';
+
+    let {resizeMode, ..._imageStyle} = imageStyle;
+    if (!resizeMode) {
+      resizeMode = this.props.text ? 'contain' : 'cover';
+    }
+
     if (this.props.source) {
       let highLightImage =
-        this.state.active ? (<Image
+        this.state.active && this.props.activeSource
+          ? (<Image
           source={this.props.activeSource}
-          style={[imageStyle,{resizeMode:resizeMode}]}
-        />) : (emptyView);
+          style={{..._imageStyle,resizeMode:resizeMode}}
+        />)
+          : (emptyView);
       return (
         <View
-          style={[imageStyle]}
+          style={{..._imageStyle}}
         >
           <Image
             source={this.props.source}
-            style={[{height:imageStyle.height,width:imageStyle.width,resizeMode:'contain',position:'absolute'}]}
+            style={[{height:imageStyle.height,width:imageStyle.width,resizeMode:resizeMode,position:'absolute'}]}
           />
           {highLightImage}
         </View>
@@ -88,12 +93,6 @@ export default class Button extends Component {
       return (
         <View>
           <Text style={[fontStyle]}>{_text}</Text>
-        </View>
-      )
-    } else if (this.props.children && typeof this.props.children === 'string') {
-      return (
-        <View>
-          <Text style={[fontStyle]}>{this.props.children}</Text>
         </View>
       )
     } else {
@@ -126,13 +125,11 @@ export default class Button extends Component {
 
     let _containerStyle = {...style};
 
-    let _viewStyle = this._getRenderStyle(undefined, style);
+    let _contentViewSize = this._getRenderStyle({}, style);
 
     let _fontStyle = {...fontStyle};
 
     let _imageStyle = this._getRenderStyle(imageStyle, style);
-
-    let _flexDirectionStyle = {flexDirection: type == 'left' || type == 'right' ? 'row' : 'column'};
 
     if (active) {
       if (activeFontStyle) {
@@ -142,18 +139,30 @@ export default class Button extends Component {
         _imageStyle = activeImageStyle
       }
       if (activeStyle) {
-        _containerStyle = activeStyle
-        _viewStyle = this._getRenderStyle(undefined, activeStyle)
-        if (!activeImageStyle && !children) {
+        _containerStyle = activeStyle;
+        _contentViewSize = this._getRenderStyle({}, activeStyle);
+        if (!activeImageStyle && !text && !children) {
           _imageStyle = this._getRenderStyle(activeImageStyle, activeStyle);
         }
       }
     }
 
     let _image = this._renderImage(_imageStyle);
+    let _text = this._renderText(_fontStyle);
 
-    let front = type == 'left' || type == 'top' ? this._renderText(_fontStyle) : _image;
-    let behind = type == 'left' || type == 'top' ? _image : this._renderText(_fontStyle);
+    let front = type == 'iconLeft' || type == 'iconTop'
+      ? _text
+      : _image;
+    let behind = type == 'iconLeft' || type == 'iconTop'
+      ? _image
+      : _text;
+
+    let _contentViewLayoutStyle = {
+      flex:1,
+      flexDirection: type == 'iconLeft' || type == 'iconRight' ? 'row' : 'column',
+      justifyContent: _containerStyle.justifyContent ? _containerStyle.justifyContent : 'center',
+      alignItems: _containerStyle.alignItems ? _containerStyle.alignItems : 'center',
+    };
 
     return (
       <TouchableOpacity
@@ -162,14 +171,15 @@ export default class Button extends Component {
         onPressIn={this.onPressIn.bind(this)}
         onPressOut={this.onPressOut.bind(this)}
         activeOpacity={activeOpacity}
-        style={[_containerStyle,{overflow:'hidden'}]}
+        style={{..._containerStyle,overflow:'hidden'}}
         onLayout={(event) => {}}
       >
         <View
-          style={[_viewStyle,_flexDirectionStyle,{alignItems: 'center',justifyContent: 'center',flex:1}]}
+          style={{..._contentViewSize,..._contentViewLayoutStyle}}
         >
           {front}
           {behind}
+          {children}
         </View>
       </TouchableOpacity>
     );
@@ -199,24 +209,36 @@ export default class Button extends Component {
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+  type: PropTypes.oneOf(['iconLeft', 'iconRight', 'iconTop', 'iconBottom']),
   text: PropTypes.string,
-  activeText: PropTypes.string,
-  style: PropTypes.object,
   fontStyle: PropTypes.object,
-  imageStyle: PropTypes.object,
-  activeStyle: PropTypes.object,
+  activeText: PropTypes.string,
   activeFontStyle: PropTypes.object,
+  style: PropTypes.object,
+  activeStyle: PropTypes.object,
+  imageStyle: PropTypes.object,
   activeImageStyle: PropTypes.object,
   animated: PropTypes.bool,
   animations: PropTypes.object,
   onPressIn: PropTypes.func,
-  onPressOut: PropTypes.func
+  onPressOut: PropTypes.func,
+  source: PropTypes.oneOfType([
+    PropTypes.shape({
+      uri: PropTypes.string
+    }),
+    PropTypes.number
+  ]),
+  activeSource: PropTypes.oneOfType([
+    PropTypes.shape({
+      uri: PropTypes.string
+    }),
+    PropTypes.number
+  ])
 };
 
 Button.defaultProps = {
   animated: false,
-  type: 'bottom',
+  type: 'iconBottom',
   imageStyle: {},
   animations: {
     duration: 200,
@@ -228,4 +250,4 @@ Button.defaultProps = {
       type: LayoutAnimation.Types.easeInEaseOut,
     }
   }
-};
+}

@@ -32,10 +32,11 @@ export default class ButtonDemo extends Component {
       <ScrollView style={{backgroundColor:'white',flex:1}}>
         <DemoSection
           title='文本Button'
-          style={{flex:1,flexDirection:'row'}}
+          style={{flex:1}}
+          containerStyle={{flexDirection:'row',justifyContent:'center'}}
         >
           <Button
-            style={{height: 40,width:100,alignSelf:'center',backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 50}}
+            style={{justifyContent:'center',height: 40,width:100,alignSelf:'center',backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 50}}
             fontStyle={{fontSize: 16, color: '#0033FF',alignSelf:'center',fontWeight:'600',letterSpacing:0,lineHeight:0}}
             activeStyle={{height: 40,width:150, alignSelf:'center',backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             activeFontStyle={{fontSize: 16, color: '#0033FF',alignSelf:'center',fontWeight:'600',letterSpacing:0,lineHeight:0}}
@@ -83,7 +84,8 @@ export default class ButtonDemo extends Component {
         </DemoSection>
         <DemoSection
           title='图像Button'
-          style={{flex:1,flexDirection:'row',justifyContent:'center'}}
+          style={{flex:1}}
+          containerStyle={{flexDirection:'row',justifyContent:'center'}}
         >
           <Button
             style={{marginTop:10,alignSelf:'center',height: 40,width:40, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 20}}
@@ -176,15 +178,17 @@ export default class ButtonDemo extends Component {
         </DemoSection>
         <DemoSection
           title='图文Button'
-          style={{flex:1,flexDirection:'row',justifyContent:'center'}}
+          style={{flex:1}}
+          containerStyle={{flexDirection:'row',justifyContent:'center'}}
         >
           <Button
             style={{marginTop:10,alignSelf:'center', height: 55,width:80, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             imageStyle={{height:50,width:50}}
             activeStyle={{marginTop:10,alignSelf:'center',height: 55,width:100, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             source={require('../jpg/head.jpg')}
+            text="左⬅️️"
             animated={true}
-            type="left"
+            type="iconLeft"
             onLongPress={() => {
           console.log('onLongPress...');
         }}
@@ -198,15 +202,15 @@ export default class ButtonDemo extends Component {
           console.log('onPressOut...');
         }}
           >
-            左⬅️
           </Button>
           <Button
             style={{marginLeft:10,marginTop:10,alignSelf:'center', height: 65,width:55, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             imageStyle={{height:50,width:50}}
             activeStyle={{marginLeft:10,marginTop:0,alignSelf:'center',height: 85,width:55, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             source={require('../jpg/head.jpg')}
+            text="上⬆️"
             animated={true}
-            type="top"
+            type="iconTop"
             onLongPress={() => {
           console.log('onLongPress...');
         }}
@@ -220,15 +224,15 @@ export default class ButtonDemo extends Component {
           console.log('onPressOut...');
         }}
           >
-            上⬆️
           </Button>
           <Button
             style={{marginLeft:10,marginTop:10,alignSelf:'center', height: 65,width:55, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             imageStyle={{height:50,width:50}}
             activeStyle={{marginLeft:10,marginTop:0,alignSelf:'center',height: 85,width:55, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             source={require('../jpg/head.jpg')}
+            text="下⬇"
             animated={true}
-            type="bottom"
+            type="iconBottom"
             onLongPress={() => {
           console.log('onLongPress...');
         }}
@@ -242,16 +246,17 @@ export default class ButtonDemo extends Component {
           console.log('onPressOut...');
         }}
           >
-            下⬇
+
           </Button>
           <Button
             style={{marginLeft:10,marginTop:10,alignSelf:'center', height: 55,width:80, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             imageStyle={{height:50,width:50}}
+            text="右➡️"
             source={require('../jpg/head.jpg')}
             activeImageStyle={{width:50,height:50}}
             activeStyle={{marginLeft:10,marginTop:10,alignSelf:'center',height: 55,width:100, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             animated={true}
-            type="right"
+            type="iconRight"
             onLongPress={() => {
           console.log('onLongPress...');
         }}
@@ -265,18 +270,19 @@ export default class ButtonDemo extends Component {
           console.log('onPressOut...');
         }}
           >
-            ️右➡️
           </Button>
 
         </DemoSection>
         <DemoSection
           title='DisableButton'
           style={{flex:1}}
+          containerStyle={{justifyContent:'center'}}
         >
           <Button
             style={{marginTop:10,alignSelf:'center', height: 70,width:70, backgroundColor: 'white', borderWidth: 1 / PixelRatio.get(), borderColor: '#0033FF', borderRadius: 5}}
             imageStyle={{height:50,width:50}}
             source={require('../jpg/head.jpg')}
+            text="Disabled"
             animated={true}
             disabled={true}
             onLongPress={() => {
@@ -292,7 +298,6 @@ export default class ButtonDemo extends Component {
           console.log('onPressOut...');
         }}
           >
-            Disabled
           </Button>
         </DemoSection>
       </ScrollView>
