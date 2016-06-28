@@ -1,6 +1,6 @@
 'use strict';
 
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,104 +11,117 @@ import {
   Animated,
 } from 'react-native';
 
-import {Parallax} from 'react-native-yui';
 import {ParallaxView} from 'react-native-yui';
-import {ParallaxScrollView} from 'react-native-yui';
 
-var IMAGE_WIDTH = Dimensions.get('window').width;
-var IMAGE_HEIGHT = IMAGE_WIDTH / 1.5;
-var PIXEL_RATIO = PixelRatio.get();
-var PARALLAX_FACTOR = 0.5;
+let WINDOW_WIDTH = Dimensions.get('window').width;
+let WINDOW_HEIGHT = Dimensions.get('window').height;
+let IMAGE_HEIGHT = WINDOW_WIDTH / 1.5;
+let PIXEL_RATIO = PixelRatio.get();
+let PARALLAX_FACTOR = 0.5;
 
-var IMAGE_URI_PREFIX = 'http://loremflickr.com/' + (IMAGE_WIDTH * PIXEL_RATIO) + '/' + Math.round(IMAGE_HEIGHT * (1 + PARALLAX_FACTOR * 2) * PIXEL_RATIO) + '/';
-
-var IMAGE_NAME_PREFIX = '/Users/zhangtian/Desktop/react-native-yui/demo/jpg/tampon';
-
-var SECTIONS = [
+let SECTIONS = [
   {
-    title: '(=^ ◡ ^=)',
-    keyword: 'cat',
+    title: '隐形舒适,美不留痕',
+    source:require('../jpg/tampon0.jpg')
   },
-];
-class DemoSection extends Component {
-  render() {
-    return (
-      <Parallax.ScrollView style={styles.scrollView}>
-        {SECTIONS.map((section, i) => (
-          <Parallax.Image
-            key={i}
-            style={{height:IMAGE_HEIGHT,width:IMAGE_WIDTH,marginTop:30}}
-            overlayStyle={styles.overlay} //浮层Style;
-            source={{ uri: IMAGE_NAME_PREFIX + i +'.jpg' }}
-            parallaxFactor={PARALLAX_FACTOR} // 背景图片视差效果,越大效果越明显,建议赋值范围 (0,1];
-            onPress={() => {console.log('点击了第' + i +'张图片')}}
-            >
-            <Text style={styles.title}
-            >{section.title}</Text>
-            <Text style={styles.url}>Source: {IMAGE_NAME_PREFIX + i +'.jpg'}</Text>
-          </Parallax.Image>
-        ))}
-      </Parallax.ScrollView>
-    );
+  {
+    title: '更IN,更美,更轻松',
+    source:require('../jpg/tampon1.jpg')
+  },
+  {
+    title: '随心而动,精彩不停',
+    source:require('../jpg/tampon2.jpg')
+  },
+  {
+    title: '完美细节,时刻贴心',
+    source:require('../jpg/tampon3.jpg')
+  },
+  {
+    title: '定位准,易置入',
+    source:require('../jpg/tampon4.jpg')
+  },
+  {
+    title: '丝缎般光滑触感',
+    source:require('../jpg/tampon5.jpg')
+  },
+  {
+    title: 'WCM世界级制造标准',
+    source:require('../jpg/tampon6.jpg')
+  },
+  {
+    title: '反复打磨细节之处',
+    source:require('../jpg/tampon7.jpg')
+  },
+  {
+    title: '选取最优质材料',
+    source:require('../jpg/tampon8.jpg')
+  },
+  {
+    title: '配送更快更安心',
+    source:require('../jpg/tampon9.jpg')
   }
-};
-
-/**
- * 测试单元Parallax.Image
- * */
+];
 
 export default class DemoSection1 extends Component {
 
-  componentWillMount() {
-    var scrollValue = new Animated.Value(0);
-    this.setState({ scrollValue });
+  constructor(props) {
+    super(props);
+    this.state = {
+      horizontal: false,
+      pagingEnabled:false
+    }
   }
 
-  onParallaxScroll(event) {
-    const { nativeEvent: { contentOffset: { y: offsetY,x: offsetX } } } = event
-    this.state.scrollValue.setValue(offsetY);
-    // this.state.scrollValue.setValue(offsetX);
+  onPress() {
+    this.setState({
+      horizontal:!this.state.horizontal,
+      pagingEnabled: !this.state.pagingEnabled
+    })
   }
-
 
   render() {
-    return (
-      <ScrollView
-        onScroll = {(e) => {this.onParallaxScroll(e)}}
-        scrollEventThrottle = {16}
-        horizontal={false}
-        >
+    let parallaxViewStyle = {
+      height: this.state.horizontal ? WINDOW_HEIGHT - 100 : IMAGE_HEIGHT,
+      width: WINDOW_WIDTH,
+      marginTop: 10,
+      marginRight : this.state.horizontal? 10:0
+    };
+
+    let content = (
+      SECTIONS.map((section, i) =>(
         <ParallaxView
-          key={1}
-          name="2"
-          scrollValue = {this.state.scrollValue}
-          // style={styles.image}
-          style={{height:IMAGE_HEIGHT,
-          width:IMAGE_WIDTH,
-          marginTop:30}}
+          key={i}
+          style={{...parallaxViewStyle}}
           overlayStyle={styles.overlay}
-          source={{uri:'/Users/zhangtian/Desktop/react-native-yui/demo/jpg/tampon'+0+'.jpg'}}
+          source={section.source}
           parallaxFactor={PARALLAX_FACTOR}
-          >
-          <Text style={styles.title}>{'-o,,o,,o\''}</Text>
-          <Text style={styles.url}>Source: {IMAGE_URI_PREFIX + 'ant'}</Text>
+        >
+          <Text style={styles.title}>{section.title}</Text>
+          <Text style={styles.url}>Source: {'www.yoai.com'}</Text>
         </ParallaxView>
-        
+      ))
+    );
 
-      </ScrollView>
-
+    return (
+      <View style={{flex:1}}>
+        <View style={{marginTop:30,alignSelf:'center',width:150,height:30,borderWidth:PIXEL_RATIO,alignItems:'center',justifyContent:'center'}}>
+          <Text onPress={this.onPress.bind(this)}>
+            { this.state.horizontal ? '水平方向' : '垂直方向'}
+          </Text>
+        </View>
+        <ParallaxView.ScrollView
+          style = {{width:WINDOW_WIDTH + 10}}
+          pagingEnabled={this.state.pagingEnabled}
+          scrollEventThrottle={16}
+          horizontal={this.state.horizontal}>
+          {content}
+        </ParallaxView.ScrollView>
+      </View>
     );
   }
 };
 
 var styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'white'
-  },
-  image: {
-    marginTop:50,
-    height: IMAGE_HEIGHT,
-  },
   overlay: {
     alignItems: 'center',
     justifyContent: 'center',

@@ -59,7 +59,10 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get ParallaxView() {
+    return require('./library/parallax/ParallaxView').default;
   }
-}
+};
 
 module.exports = YUI;
