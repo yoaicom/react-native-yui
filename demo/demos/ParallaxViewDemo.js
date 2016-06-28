@@ -103,7 +103,7 @@ export default class DemoSection1 extends Component {
     );
 
     return (
-      <View style={{flex:1}}>
+      <View style={{flex:1,backgroundColor:'white'}}>
         <View style={{marginTop:30,alignSelf:'center',width:150,height:30,borderWidth:PIXEL_RATIO,alignItems:'center',justifyContent:'center'}}>
           <Text onPress={this.onPress.bind(this)}>
             { this.state.horizontal ? '水平方向' : '垂直方向'}
