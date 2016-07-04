@@ -42,7 +42,12 @@ const dataSource = ds.cloneWithRowsAndSections({
     {
       name: 'MediaKit',
       desc: '媒体播放'
-    },],
+    },
+    {
+      name: 'CenterCell',
+      desc: '自动将Cell置于屏幕中间'
+    },
+  ],
   'Control Components': [
     {
       name: 'RefreshControl',

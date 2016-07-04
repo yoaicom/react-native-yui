@@ -14,22 +14,7 @@ import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
 import CenterContent from './demos/CenterContent';
 
-export default class Demo1 extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-
-  render () {
-    return(
-      <CenterContent/>
-    )
-  }
-}
-
-
-class Demo extends Component {
+export default class Demo extends Component {
   render() {
     return (
       <Navigator
@@ -69,6 +54,8 @@ class Demo extends Component {
     }
     if(route.name === 'MediaKit') {
       return <MediaKitDemo />
+    }if(route.name === 'CenterCell') {
+      return <CenterContent />
     }
   }
 }

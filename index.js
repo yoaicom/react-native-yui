@@ -59,7 +59,10 @@ var YUI = {
   },
   get DatePicker() {
     return ReactNative.DatePicker;
+  },
+  get CenterCell() {
+    return require('./library/CenterCell').default;
   }
-}
+};
 
 module.exports = YUI;
