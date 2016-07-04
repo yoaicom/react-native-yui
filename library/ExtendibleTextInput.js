@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 
-const {number, func, bool} = PropTypes;
+const {number, func, bool,string} = PropTypes;
 
-import {View, TextInput} from 'react-native';
+import {TextInput} from 'react-native';
 
 export default class ExtendibleTextInput extends Component {
   constructor(props) {
@@ -13,11 +13,14 @@ export default class ExtendibleTextInput extends Component {
   }
 
   _onChange(nativeEvent) {
+    if(this.props.onChange) {
+      this.props.onChange();
+    }
     let newHeight = this.state.height;
     if (nativeEvent.contentSize && this.props.isExtendible) {
       newHeight = nativeEvent.contentSize.height;
-      if(this.props.maxHeight) {
-        if (this.state.height !== newHeight &&newHeight <= this.props.maxHeight&& this.props.onHeightExtended) {
+      if (this.props.maxHeight) {
+        if (this.state.height !== newHeight && newHeight <= this.props.maxHeight && this.props.onHeightExtended) {
           this.props.onHeightExtended(newHeight, this.state.height, newHeight - this.state.height);
         }
       } else {
@@ -43,7 +46,8 @@ export default class ExtendibleTextInput extends Component {
   render() {
     return (
       <TextInput {...this.props} {...this.style}
-        multiline={true}
+        //onLayout方法不执行,无法再挂载阶段获取容器的行高
+        // onLayout={() => {console.log('---------------------------------onLayout');}}
         style={[this.props.style,{height:Math.max(this._getChangeHeight(this.state.height),this.props.style.height)}]}
         onChange={(event) => {this._onChange(event.nativeEvent)}}
       />
@@ -53,7 +57,7 @@ export default class ExtendibleTextInput extends Component {
 }
 
 ExtendibleTextInput.propTypes = {
-  maxHeight: number,
+  maxHeight: string,
   onHeightExtended: func,
   isExtendible: bool
 };
