@@ -72,12 +72,8 @@ export default class CenterContentView extends Component {
     })
   }
 
-  handleCellLayout() {
-    this._cell.measure(this.handleCellMeasue.bind(this));
-  }
-
-  handleCellMeasue(ox, oy, width, height, px, py) {
-
+  handleCellLayout(event) {
+    let {nativeEvent: {layout: {x, y, width, height}}} = event;
     let offsetX = (this.state.width - this.props.space - this.state.cellWidth) / 2 - (this.state.cellWidth + this.props.space) * (this.props.initialIndex - 1);
 
     this.setState({
@@ -97,7 +93,7 @@ export default class CenterContentView extends Component {
 
     let {offsetX} = this.state;
 
-    let {space, data, style} = this.props;
+    let {space, data, style, contentStyle} = this.props;
 
     let [translateX] = [offsetX];
 
@@ -107,33 +103,34 @@ export default class CenterContentView extends Component {
       width: this.state.cellWidth + space
     };
 
-    let content = (
-      data.map((section, i) =>(
-        <View
-          key={i}
-          style={{...parallaxViewStyle}}
-        >
-          {this.renderCell(section, {
-              ref: ( (ref) => this._cell = ref),
-              onLayout: (this.handleCellLayout.bind(this))
-            }
-          )}
-        </View>
-
-      ))
-    );
-
     let animatedStyle = {transform: [{translateX}]};
 
+    let content = (
+      data.map((section, i) => {
+        return (
+          <Animated.View
+            key={i}
+            style={{...animatedStyle,...contentStyle,...parallaxViewStyle}}
+            {...this._panResponder.panHandlers}
+          >
+            {this.renderCell(section, {
+                ref: ( (ref) => this._cell = ref),
+                onLayout: (this.handleCellLayout.bind(this))
+              }
+            )}
+          </Animated.View>
+        )
+      })
+    );
+
     return (
-      <Animated.View
-        {...this._panResponder.panHandlers}
+      <View
         ref={(ref) => this._animatedView = ref}
         onLayout={this.handleContainerLayout.bind(this)}
-        style={{...animatedStyle,...style,flexDirection:'row'}}
+        style={{...style,flexDirection:'row'}}
       >
         {content}
-      </Animated.View>
+      </View>
     );
   }
 
@@ -182,6 +179,10 @@ CenterContentView.PropTypes = {
   renderCell: PropTypes.func,
   initialIndex: PropTypes.number,
   style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  contentStyle: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number
   ])
