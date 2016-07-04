@@ -1,8 +1,3 @@
-/**
- * @providesModule ParallaxImage
- */
-'use strict';
-
 import React, {Component, PropTypes} from 'react';
 
 import {
@@ -15,10 +10,8 @@ import {
   Dimensions,
 } from 'react-native';
 
-
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 const WINDOW_WIDTH = Dimensions.get('window').width;
-
 
 export default class ParallaxView extends Component {
 
@@ -29,10 +22,10 @@ export default class ParallaxView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      height: 0,
       width: 0,
-      offsetY: 0,
-      offsetX: 0
+      height: 0,
+      offsetX: 0,
+      offsetY: 0
     };
   }
 
@@ -124,15 +117,15 @@ export default class ParallaxView extends Component {
 var styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-    position: 'relative',
+    position: 'relative'
   },
   overlay: {
     flex: 1,
-    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
+    position: 'absolute'
   }
 });
 
@@ -152,7 +145,7 @@ ParallaxView.propsTypes = {
       uri: PropTypes.string
     }),
     PropTypes.number
-  ]),
+  ])
 };
 ParallaxView.defaultProps = {
   horizontal: false,
