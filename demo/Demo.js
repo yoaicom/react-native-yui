@@ -12,11 +12,23 @@ import ButtonDemo from './demos/ButtonDemo';
 import ViewPagerDemo from './demos/ViewPagerDemo';
 import TabBarDemo from './demos/TabBarDemo';
 import MediaKitDemo from './demos/MediaKitDemo';
+import PortableGirdViewDemo from './demos/PortableGirdViewDemo';
 
+export default class Demo1 extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
 
+  render () {
+    return(
+      <PortableGirdViewDemo/>
+    )
+  }
+}
 
-export default class Demo extends Component {
+class Demo extends Component {
   render() {
     return (
       <Navigator
