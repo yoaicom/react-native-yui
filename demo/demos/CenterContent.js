@@ -9,7 +9,8 @@ import {
   ScrollView
 } from 'react-native';
 
-import {CenterCell} from 'react-native-yui';
+// import {CenterContentView} from 'react-native-yui';
+import CenterContentView from 'react-native-center-content-view';
 
 let SECTIONS = [
   {
@@ -58,36 +59,83 @@ export default class Demo extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      scale: 0.8,
+      opacity: 1,
+      rotateLeft: "0deg",
+      rotateRight: "0deg",
+      type: "Scale"
+    }
   }
 
   renderCell(data) {
     return (
-      <Image
-        style={{width:200,height:200}}
-        source={data.source}/>
+      <View
+        style={{width:200,height:200,shadowColor:'green',shadowOffset:{width:0,height:0},shadowOpacity:1}}
+      >
+        <Image
+          style={{width:200,height:200}}
+          source={data.source}/>
+      </View>
     )
+  }
+
+  handleOnPress() {
+    if (this.state.type == "Scale") {
+      this.setState({
+        scale: 1,
+        opacity: 0.3,
+        type: "Opacity"
+      })
+    } else if (this.state.type == "Opacity") {
+      this.setState({
+        opacity: 1,
+        rotateLeft: "-20deg",
+        rotateRight: "20deg",
+        type: "Rotate"
+      })
+    } else if (this.state.type == "Rotate") {
+      this.setState({
+        scale: 0.8,
+        rotateLeft: "0deg",
+        rotateRight: "0deg",
+        type: "Scale"
+      })
+    }
   }
 
   render() {
     return (
-      <View style={{backgroundColor:'white',flex:1}}>
+      <ScrollView style={{marginTop:20, backgroundColor:'white'}}>
         <View
           style={{justifyContent:'center',alignItems:'center',borderWidth:1/PixelRatio.get(),width:300,height:50,alignSelf:'center'}}>
           <Text style={{fontSize:20}}>
-            Cell居中放置
+            CenterContentViewDemo
           </Text>
         </View>
-        <CenterCell
-          style={{marginTop:10}}
-          contentStyle={{backgroundColor:'#D9D9D9'}}
+
+
+        <CenterContentView
+          style={{height:300,marginTop:20,backgroundColor:'#EBEBEB',overflow:'hidden',alignItems:'center'}}
           space={30}
+          scale={this.state.scale}
+          opacity={this.state.opacity}
+          rotateLeft={this.state.rotateLeft}
+          rotateRight={this.state.rotateRight}
           data={SECTIONS}
-          initialIndex={4}
+          initialIndex={3}
           renderCell={this.renderCell.bind(this)}
         />
-
-      </View>
+        <View
+          style={{marginTop:20,width : 200 , height: 50,borderWidth:1 / PixelRatio.get(),justifyContent:'center',alignItems:'center',alignSelf:'center'}}
+        >
+          <Text
+            onPress={this.handleOnPress.bind(this)}
+          >
+            {this.state.type}
+          </Text>
+        </View>
+      </ScrollView>
     )
   }
 }
